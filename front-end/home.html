@@ -12,7 +12,8 @@
 		}
 		header{
 			background-color: #28527a;
-			overflow: hidden;;
+			overflow: hidden;
+			
 		}
 		header a{
 			float:left;
@@ -21,6 +22,7 @@
 			text-decoration: none;
 			font-size: 17px;
 			padding: 14px 16px;
+			
 		}
 		header a:hover {
   			background-color: #8ac4d0;
@@ -30,40 +32,81 @@
   			background-color: #f4d160;
  			 color: white;
 		}
+		.userbox{
+			vertical-align: middle;
+  		width: 48px;
+  		height: 48px;
+  		border-radius: 50%;
+			float:right;	
+		}
+
 		.center-page{
-			width: 50%;
+			 margin: auto;
+ 			 width: 50%;
+ 			 border: 4px solid #28527a;
+			 border-radius: 6px;
+ 			 padding: 20px;
+			 display:flex;
+			 flex-direction: column;
+			 justify-content: center;
+			
+		}
+		.center-page :first-child{
+			align-self:center;
 		}
 		.postare{
 			
 			background-color:#f4d160 ;
 			box-sizing: border-box;  
-			width: 300px;
+			width: 100%;
 			height: 100%;
 			padding: 50px;  
+			margin: 20px;
 			border: 4px solid #28527a;
 			border-radius: 6px;
+			text-align: center;
+			
+			
 		}
 		#casuta-postare{
 			background-color: blueviolet;
-			border-left: 10px;
+			/* border-left: 10px; */
 		}
 		.postari-list{
 			background-color:#f4d160 ;
 			box-sizing: border-box;  
-			width: 300px;
+			width: 100%;
 			height: 100%;
-			padding: 50px;  
+			padding: 2%; 
 			border: 4px solid #28527a;
 			border-radius: 6px;
+			text-align: center;
 		}
 		.postari-list-element{
 			background-color:#f4d160 ;
 			box-sizing: border-box;  
-			width: 200px;
+			width: 100%;
 			height: 100%;
-			padding: 50px;  
+			padding: 0px; 
+			margin-top: 20px; 
 			border: 4px solid #28527a;
 			border-radius: 6px;
+			text-align: center;
+			border-collapse: separate;
+			border-spacing: 20px;
+			position: relative;
+		}
+		.postari-list-element_header{
+			border-bottom: 3px solid #28527a;
+			padding:5px;
+
+		}
+		.postari-list-element_footer{
+			position: inherit;
+			
+			padding:5px;
+			border-top:3px solid #28527a;
+		/* background-color: blueviolet; */
 		}
 		footer{
 			background-color: #28527a;
@@ -83,21 +126,51 @@
 		<a href="#">Sfatuitori</a>
 		<a href="#">About</a>
 		<a href="#">Contact</a>
+		<button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button>
 	</header>
 	<div class="center-page">
 	partea din mijloc
 	<div class="postare">
 		casuta postare
+		<div>
 		<input type="text" id="text-postare">
-		<input type="time">
+	</div>
+		<div>
+			Categorie<select id="categorie">
+            <option value="masini">Masini</option>
+            <option value="telefoane">Telefoane</option>
+			<option value="Imobiliare">Imobiliare</option>
+		</select>
+		Pret<select id="pret">
+			<option value="Imobiliare">Euro</option>
+		</select>
+		Altele<select id="altele">
+			<option value="Imobiliare">Altele</option>
+		</select>
 		<button>Posteaza</button>
+		</div>
 	</div>
 	<div class="postari-list">
-		lista de postari
-		<div class="postari-list-element">postare1</div>
-		<div class="postari-list-element">postare2</div>
-		<div class="postari-list-element">postare3</div>
+		<div class="postari-list-element">
+			<div class="postari-list-element_header">Username : Sfatuitori</div>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
+			<div class="postari-list-element_footer"><button>rating</button><button>Comment</button>
+			</div>
+		</div>
+		<div class="postari-list-element">
+			<div class="postari-list-element_header">Username : Sfatuitori</div>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
+			<div class="postari-list-element_footer"><button>rating</button><button>Comment</button>
+			</div>
+		</div>
+		<div class="postari-list-element">			
+			<div class="postari-list-element_header">Username : Sfatuitori</div>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
+			<div class="postari-list-element_footer"><button>rating</button><button>Comment</button>
+			</div>
+		</div>
 	</div>
+	
 	</div>
 	<footer>Copyright contacte etc</footer>
 </body>
