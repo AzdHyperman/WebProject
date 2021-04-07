@@ -5,172 +5,101 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
-	<style>
-		body{
-			background-color: #fbeeac;
-			margin:0;
-		}
-		header{
-			background-color: #28527a;
-			overflow: hidden;
-			
-		}
-		header a{
-			float:left;
-			color:white;
-			text-align: center;
-			text-decoration: none;
-			font-size: 17px;
-			padding: 14px 16px;
-			
-		}
-		header a:hover {
-  			background-color: #8ac4d0;
-  			color: black;
-		}
-		header a.active {
-  			background-color: #f4d160;
- 			 color: white;
-		}
-		.userbox{
-			vertical-align: middle;
-  		width: 48px;
-  		height: 48px;
-  		border-radius: 50%;
-			float:right;	
-		}
-
-		.center-page{
-			 margin: auto;
- 			 width: 50%;
- 			 border: 4px solid #28527a;
-			 border-radius: 6px;
- 			 padding: 20px;
-			 display:flex;
-			 flex-direction: column;
-			 justify-content: center;
-			
-		}
-		.center-page :first-child{
-			align-self:center;
-		}
-		.postare{
-			
-			background-color:#f4d160 ;
-			box-sizing: border-box;  
-			width: 100%;
-			height: 100%;
-			padding: 50px;  
-			margin: 20px;
-			border: 4px solid #28527a;
-			border-radius: 6px;
-			text-align: center;
-			
-			
-		}
-		#casuta-postare{
-			background-color: blueviolet;
-			/* border-left: 10px; */
-		}
-		.postari-list{
-			background-color:#f4d160 ;
-			box-sizing: border-box;  
-			width: 100%;
-			height: 100%;
-			padding: 2%; 
-			border: 4px solid #28527a;
-			border-radius: 6px;
-			text-align: center;
-		}
-		.postari-list-element{
-			background-color:#f4d160 ;
-			box-sizing: border-box;  
-			width: 100%;
-			height: 100%;
-			padding: 0px; 
-			margin-top: 20px; 
-			border: 4px solid #28527a;
-			border-radius: 6px;
-			text-align: center;
-			border-collapse: separate;
-			border-spacing: 20px;
-			position: relative;
-		}
-		.postari-list-element_header{
-			border-bottom: 3px solid #28527a;
-			padding:5px;
-
-		}
-		.postari-list-element_footer{
-			position: inherit;
-			
-			padding:5px;
-			border-top:3px solid #28527a;
-		/* background-color: blueviolet; */
-		}
-		footer{
-			background-color: #28527a;
-			color:white;
-			position:static;
-			left:0;
-			bottom: 0;
-			width: 100%;
-			text-align: center;
-		}
-	</style>
+	<link rel="stylesheet" href="home.css">
 </head>
 <body>
 	<header>
 		Bara de navigare
-		<a class="active" href="#">Home</a>
-		<a href="#">Sfatuitori</a>
-		<a href="#">About</a>
+		<a class="active" href="./home.html">Home</a>
+		<a href="./feedbacks.html">Sfatuitori</a>
+		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#">Contact</a>
-		<button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button>
+		
+		<div class="Username"><button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button> Username</div>
 	</header>
+	body-ul paginii
+	<h1 class="titlu_proiect">Purchase Council Adviser</h1>
 	<div class="center-page">
 	partea din mijloc
 	<div class="postare">
 		casuta postare
 		<div>
-		<input type="text" id="text-postare">
+		<textarea id="text-postare" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
 	</div>
+		<div class="postare-element_footer">
 		<div>
-			Categorie<select id="categorie">
+			<label>Categorie</label>
+			<select id="categorie">
             <option value="masini">Masini</option>
             <option value="telefoane">Telefoane</option>
 			<option value="Imobiliare">Imobiliare</option>
-		</select>
-		Pret<select id="pret">
-			<option value="Imobiliare">Euro</option>
-		</select>
-		Altele<select id="altele">
+			</select>
+		</div>
+		<div>
+			<label>Pret</label>
+			<select id="pret">
+			<option value="Euro">Euro</option>
+			</select>
+		</div>
+		<div>
+			<label>Altele</label>
+			<select id="altele">
 			<option value="Imobiliare">Altele</option>
 		</select>
+		</div>
 		<button>Posteaza</button>
 		</div>
 	</div>
 	<div class="postari-list">
 		<div class="postari-list-element">
-			<div class="postari-list-element_header">Username : Sfatuitori</div>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
-			<div class="postari-list-element_footer"><button>rating</button><button>Comment</button>
-			</div>
+			<div class="postari-list-element_header">Username : Client</div>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam eligendi natus vero repudiandae in vel eius alias aspernatur tenetur impedit, laboriosam quasi nisi beatae, nobis voluptas placeat illum quae! Quos!
+
+			</p>
+			<div class="postari-list-element_footer"><button>rating</button> <button>Comment</button> <div class="status">Status:Complet</div>
 		</div>
+			<div class="replies">
+				<div class="buton-raspuns"><button>sageata</button>Reply Sfatuitori </div>
+				<div class="reply_form">
+				<div class="reply_header">Username : Sfatuitori</div>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum expedita deleniti accusantium repellendus soluta harum, delectus velit dolores temporibus tempore eligendi, suscipit eveniet cumque nihil dolorum quo dicta, obcaecati asperiores?
+
+			</p>
+					<div class="reply_footer"><button>rating</button><button>Comment</button>
+					</div>
+				</div>
+			<!-- 2 -->
+			<div class="reply_form">
+				<div class="reply_header">Username : Sfatuitori</div>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dicta. Sint maiores voluptatum possimus nam aliquam dolorem laudantium facere vero 
+					dolor tenetur porro ipsa unde quibusdam ratione, nesciunt quo perspiciatis?
+				</p>
+						<div class="reply_footer"><button>rating</button><button>Comment</button>
+						</div>
+			</div>
+			<div class="reply_form">
+				<div class="reply_header">Username : Sfatuitori</div>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente natus porro exercitationem fuga rem laborum excepturi, eos aliquid. Perspiciatis dolor quo veritatis, modi quasi harum adipisci? Eveniet sint iure laudantium.
+				</p>
+						<div class="reply_footer"><button>rating</button><button>Comment</button>
+						</div>
+			</div>
+			<!-- Raspunsuri -->
+			</div>
+			<!-- prima postare --> 
+			</div>
+
+			<!-- #2 -->
 		<div class="postari-list-element">
-			<div class="postari-list-element_header">Username : Sfatuitori</div>
+			<div class="postari-list-element_header">Username : Client</div>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
-			<div class="postari-list-element_footer"><button>rating</button><button>Comment</button>
+			<div class="postari-list-element_footer"><button>rating</button> <button>Comment</button> <div class="status">Status:Complet</div>
 			</div>
 		</div>
-		<div class="postari-list-element">			
-			<div class="postari-list-element_header">Username : Sfatuitori</div>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
-			<div class="postari-list-element_footer"><button>rating</button><button>Comment</button>
-			</div>
+<!-- toate postarile  -->
 		</div>
+	<!-- pagina centrala -->
 	</div>
-	
 	</div>
 	<footer>Copyright contacte etc</footer>
 </body>
