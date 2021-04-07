@@ -1,9 +1,13 @@
-/* Add a black background color to the top navigation */
+body {
+  background-color: #fbeeac;
+  margin: 0;
+}
+
 .topnav {
   background-color: #28527a;
   overflow: hidden;
 }
-/* Style the links inside the navigation bar */
+
 .topnav a {
   float: left;
   color: white;
@@ -12,28 +16,49 @@
   font-size: 17px;
   padding: 14px 16px;
 }
-/* Change the color of links on hover */
+
 .topnav a:hover {
   background-color: #8ac4d0;
   color: black;
 }
-/* Add a color to the active/current link */
+
 .topnav a.active {
   background-color: #f4d160;
   color: white;
 }
 
 .container {
-  border: 5px solid #28527a;
-  display: flex; /* le face de la stg la drp*/
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
+  margin: auto;
   width: 50%;
-  flex-basis: 50%;
+  border: 4px solid #28527a;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.container > post {
-  align-items: center;
+.post {
+  background-color: #f4d160;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin-top: 20px;
+  border: 4px solid #28527a;
+  border-radius: 6px;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 20px;
+  position: relative;
+}
+.post-user {
+  border-bottom: 3px solid #28527a;
+  padding: 5px;
+}
+.post-footer {
+  position: inherit;
+  padding: 5px;
+  border-top: 3px solid #28527a;
 }
 
 footer {
