@@ -123,7 +123,7 @@ select,option,button{
  
     text-align: center;
     align-self: center;
-    background-color:#00adb5;
+    background-color:#8ac4d0;
     color:black;
     text-transform: uppercase;
     outline: 0;
@@ -174,6 +174,20 @@ select,option,button{
     align-self: center;
 /* background-color: blueviolet; */
 }
+
+.add-comment{
+    border:2px solid blueviolet;
+    height: 100%;
+}
+.add-comment #casuta-comment{
+    background-color: whitesmoke;
+    border: 3px solid #28527a;
+    width:80%;
+    height: inherit;
+    float: left;
+    /* margin:10px; */
+    resize:none;
+}
 .replies{
     padding:0px;
     box-sizing: border-box;
@@ -186,7 +200,8 @@ select,option,button{
 }
 .buton-raspuns{
     background-color: olivedrab;
-    float :right;
+    display:flex;
+    justify-content: left;
     padding:0px;
 }
 .reply_form{
