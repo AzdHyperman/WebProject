@@ -6,14 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
 	<link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<header>
+	<header class="topnav" id="myTopnav">
 		Bara de navigare
 		<a class="active" href="./home.html">Home</a>
 		<a href="./feedbacks.html">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#">Contact</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		  </a>
 		
 		<div class="Username"><button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button> Username</div>
 	</header>
@@ -104,6 +108,29 @@
 	<!-- pagina centrala -->
 	</div>
 	</div>
-	<footer>Copyright contacte etc</footer>
+	<footer>
+		<section><h1>Social</h1>
+			<p>Facebook</p>
+			<p>Instagram</p>
+			<p>Watsapp</p>
+			</section>
+		<section><h1>About</h1>
+			<p>@Site smecher srl</p>
+		</section>
+		<section><h1>Contact</h1>
+		
+		<p>Nr telefon</p>
+		</section>
+		<!-- pt bara de navigare -->
+		<script>
+			function myFunction() {
+			  var x = document.getElementById("myTopnav");
+			  if (x.className === "topnav") {
+				x.className += " responsive";
+			  } else {
+				x.className = "topnav";
+			  }
+			}
+			</script>
 </body>
 </html>
