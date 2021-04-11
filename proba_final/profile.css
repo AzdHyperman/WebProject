@@ -36,33 +36,32 @@ body
 }
 /* navigation bar  */
 .topnav {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #28527a;
-    color: white;
-  }
-  
-  .topnav .icon {
-    display: none;
-  }
+  overflow: hidden;
+  background-color: #252a34;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #eaeaea;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #eaeaea;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #08d9d6;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
   /* imagine + upload */
   .profile
   {

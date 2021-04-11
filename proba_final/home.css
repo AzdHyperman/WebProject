@@ -54,18 +54,12 @@ body
     display: none;
   }
   /* cutie username + meniu JS SOON */
-.userbox{
-    vertical-align: middle;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    float:left;	
-    text-decoration: none;
-}
+
 .Username{
     position: absolute;
     right:0;
     top:0;
+    display: inline-block;
      background-color: #00adb5; /*culoare casuta */
 }
 /* aliniere text + meniul? */
@@ -79,8 +73,40 @@ body
     font-size: 17px;
     cursor: pointer;
     background-color: #00adb5;
-
 }
+.userbox{
+    
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    float:left;	
+    text-decoration: none;
+}
+
+  .dropdown-content {
+    display: none;
+    right: 0;
+    top:0;
+    margin-top: 48px;
+    background-color: #00adb5;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: white;}
+  
+  .Username:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
 /* un titlu basic */
 .titlu_proiect h1
 {
@@ -379,6 +405,7 @@ footer>section{
 
 @media screen and (max-width: 720px) {
     /* .topnav a:not(:first-child) {display: none;} */
+
     .topnav a {display: none;}
     .topnav a:first-child{
         margin-top:48px;
@@ -406,6 +433,55 @@ footer>section{
         text-align: left;
         margin-right:0px;
       }
+
+    /* aliniere text + meniul? */
+    .Username label{
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        cursor: pointer;
+        background-color: #00adb5;
+    }
+    .userbox{
+        
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        float:left;	
+        text-decoration: none;
+    }
+    
+      .dropdown-content {
+        display: none;
+        right: 0;
+        top:0;
+        margin-top: 48px;
+        background-color: #00adb5;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 3%;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      .dropdown-content a:hover 
+      {background-color: white;}
+      
+      .Username:hover .dropdown-content {
+        display: flex;
+        flex-direction: column;
+      }
+      
     .center-page
     {
         width: 90%;

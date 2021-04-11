@@ -22,26 +22,30 @@ html
 
 		}
 		header{
-			background-color: #28527a;
 			overflow: hidden;
+            background-color: #252a34;
 			
 		}
 		header a{
-			float:left;
-			color:white;
-			text-align: center;
-			text-decoration: none;
-			font-size: 17px;
-			padding: 14px 16px;
-			
+			float: left;
+    		display: block;
+    		color: #eaeaea;
+   			text-align: center;
+    		padding: 14px 16px;
+    		text-decoration: none;
+    		font-size: 17px;
 		}
 		header a:hover {
-  			background-color: #8ac4d0;
-  			color: black;
+			background-color: #eaeaea;
+			color: black;
 		}
-		header a.active {
-  			background-color: #f4d160;
- 			 color: white;
+		.topnav a.active {
+			background-color: #08d9d6;
+			color: white;
+		  }
+		  
+		.topnav .icon {
+			display: none;
 		}
 		.userbox{
 			vertical-align: middle;
