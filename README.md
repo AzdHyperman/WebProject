@@ -16,4 +16,5 @@ Link documentatie!
 https://github.com/AzdHyperman/WebProject/tree/Arhitectura
 
 
-
+*Nota: pe acest repozit au fost create mai multe branch-uri, astfel evolutia proiectului se poate vedea acolo, astfel pentru verificarea si notarea proiectului
+           se va afla pe branch-ul MAIN!!
