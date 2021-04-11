@@ -15,12 +15,28 @@
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#page_footer">Contact</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
-		<div class="Username"><button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button><label href="#">Username</label> </div>
+		<div class="Username">
+			<button class="userbox" onclick="userMenu()">
+				<img src="#" alt="avatar"></button>
+				<label href="#">Username</label> 
+				<div class="dropdown-content">
+					<a href="#">Profile</a>
+					<a href="#">Admin</a>
+					<a href="#">DarkMode?</a>
+					<a href="#">Logout</a>
+				</div>
+		</div>
 	</header>
 
 	<h1 class="titlu_proiect">Purchase Advising Council</h1>
 
 	<main class="center-page">
+		<form class="example" action="/action_page.php">
+			<input type="text" placeholder="Search.." name="search">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		  </form>
+		  
+
 		<div class="postare">
 			<textarea id="text-postare" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
 			<div class="postare-element_footer">
@@ -151,6 +167,24 @@
 					x.className = "topnav";
 				}
 		}
+
+		function userMenu() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 	</script>
 </body>
 </html>
