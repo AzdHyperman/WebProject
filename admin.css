@@ -1,0 +1,135 @@
+html 
+	{
+   		height: 100%;
+    	-ms-overflow-style: none; 
+    	scrollbar-width: none;
+	}
+
+	html::-webkit-scrollbar 
+	{
+    	display: none;
+	}
+        body{
+			margin:0;
+    		padding:0;
+    		background-size: auto;
+   			background-attachment: fixed;
+    		background-image: linear-gradient(to left bottom, 	#393e46, #3f505f, #3e6478, 
+                                                      			#37798f, #288fa2, #288fa2, 
+                                                      			#288fa2, #288fa2, #37798f, 
+                                                      			#3e6478, #3f505f, #393e46
+                                    );
+
+		}
+		.topnav {
+			overflow: hidden;
+			background-color: #252a34;
+		  }
+		  .topnav a {
+			float: left;
+			display: block;
+			color: #eaeaea;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+		  }
+		  
+		  .topnav a:hover {
+			background-color: #eaeaea;
+			color: black;
+		  }
+		  
+		  .topnav a.active {
+			background-color: #08d9d6;
+			color: white;
+		  }
+		  
+		  .topnav .icon {
+			display: none;
+		  }
+		  /* cutie username + meniu JS SOON */
+		
+		.Username{
+			position: absolute;
+			right:0;
+			top:0;
+			display: inline-block;
+			 background-color: #00adb5; /*culoare casuta */
+		}
+		/* aliniere text + meniul? */
+		.Username label{
+			float: left;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+			cursor: pointer;
+			background-color: #00adb5;
+		}
+		.userbox{
+			
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			float:left;	
+			text-decoration: none;
+		}
+		
+		  .dropdown-content {
+			display: none;
+			right: 0;
+			top:0;
+			margin-top: 48px;
+			background-color: #00adb5;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		  }
+		  .dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		  }
+		  
+		  .dropdown-content a:hover {background-color: white;}
+		  
+		  .Username:hover .dropdown-content {
+			display: flex;
+			flex-direction: column;
+		  }
+        h1{
+            color: #CC0050;
+    		display:flex;
+    		justify-content:center;
+    		flex-wrap: wrap ;
+    		font-size: 300%;
+        }
+        .ActivityLog{
+            width: 30%;
+            height: 100%;
+            text-align:center;
+            margin:auto;
+            margin-top: 3%;
+			border: 1% solid #28527a;
+    		border-radius: 5px;
+    		box-shadow: 5px 3px 5px 3px #222831;
+    		padding: 2%;
+			background-image: linear-gradient(to right bottom, 	#252a34, #363756, #5b3e72, 
+																#8d3e81, #c2357f, #c2357f, 
+																#c2357f, #c2357f, #8d3e81, 
+																#5b3e72, #363756, #252a34
+											);
+   
+        }
+
+        @media screen and (max-width: 700px) 
+        {
+            .ActivityLog
+            {
+                width: 75%;
+            }
+        }
