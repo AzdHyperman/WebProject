@@ -8,11 +8,23 @@
     <title>Log page</title>
 </head>
 <body>
-	<header>
-		<a href="home.html">Home</a>
-		<a href="feedbacks.html">Sfatuitori</a>
+	<header class="topnav" id="myTopnav">
+		<a class="active" href="./home.html">Home</a>
+		<a href="./feedbacks.html">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
-		<button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button>
+		<a href="#page_footer">Contact</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+		<div class="Username">
+			<button class="userbox" onclick="userMenu()">
+				<img src="#" alt="avatar"></button>
+				<label href="#">Username</label> 
+				<div class="dropdown-content">
+					<a href="./profile.html">Profile</a>
+					<a href="./admin.html">Admin</a>
+					<a href="#">DarkMode?</a>
+					<a href="./login.html">Logout</a>
+				</div>
+		</div>
 	</header>
     <h1 >Activitate Site</h1>
     <div class="ActivityLog">

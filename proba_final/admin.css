@@ -21,39 +21,86 @@ html
                                     );
 
 		}
-		header{
+		.topnav {
 			overflow: hidden;
-            background-color: #252a34;
-			
-		}
-		header a{
+			background-color: #252a34;
+		  }
+		  .topnav a {
 			float: left;
-    		display: block;
-    		color: #eaeaea;
-   			text-align: center;
-    		padding: 14px 16px;
-    		text-decoration: none;
-    		font-size: 17px;
-		}
-		header a:hover {
+			display: block;
+			color: #eaeaea;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+		  }
+		  
+		  .topnav a:hover {
 			background-color: #eaeaea;
 			color: black;
-		}
-		.topnav a.active {
+		  }
+		  
+		  .topnav a.active {
 			background-color: #08d9d6;
 			color: white;
 		  }
 		  
-		.topnav .icon {
+		  .topnav .icon {
 			display: none;
+		  }
+		  /* cutie username + meniu JS SOON */
+		
+		.Username{
+			position: absolute;
+			right:0;
+			top:0;
+			display: inline-block;
+			 background-color: #00adb5; /*culoare casuta */
+		}
+		/* aliniere text + meniul? */
+		.Username label{
+			float: left;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+			cursor: pointer;
+			background-color: #00adb5;
 		}
 		.userbox{
-			vertical-align: middle;
-  			width: 48px;
-  			height: 48px;
-  			border-radius: 50%;
-			float:right;	
+			
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			float:left;	
+			text-decoration: none;
 		}
+		
+		  .dropdown-content {
+			display: none;
+			right: 0;
+			top:0;
+			margin-top: 48px;
+			background-color: #00adb5;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		  }
+		  .dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		  }
+		  
+		  .dropdown-content a:hover {background-color: white;}
+		  
+		  .Username:hover .dropdown-content {
+			display: flex;
+			flex-direction: column;
+		  }
         h1{
             color: #CC0050;
     		display:flex;
