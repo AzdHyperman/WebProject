@@ -10,127 +10,147 @@
 </head>
 <body>
 	<header class="topnav" id="myTopnav">
-		Bara de navigare
 		<a class="active" href="./home.html">Home</a>
 		<a href="./feedbacks.html">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#">Contact</a>
-		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-			<i class="fa fa-bars"></i>
-		  </a>
-		
-		<div class="Username"><button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button> Username</div>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+		<div class="Username"><button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button><label href="#">Username</label> </div>
 	</header>
-	body-ul paginii
+
 	<h1 class="titlu_proiect">Purchase Council Adviser</h1>
-	<div class="center-page">
-	partea din mijloc
-	<div class="postare">
-		casuta postare
-		<div>
-		<textarea id="text-postare" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
-	</div>
-		<div class="postare-element_footer">
-		<div>
-			<label>Categorie</label>
-			<select id="categorie">
-            <option value="masini">Masini</option>
-            <option value="telefoane">Telefoane</option>
-			<option value="Imobiliare">Imobiliare</option>
-			</select>
-		</div>
-		<div>
-			<label>Pret</label>
-			<select id="pret">
-			<option value="Euro">Euro</option>
-			</select>
-		</div>
-		<div>
-			<label>Altele</label>
-			<select id="altele">
-			<option value="Imobiliare">Altele</option>
-		</select>
-		</div>
-		<button>Posteaza</button>
-		</div>
-	</div>
-	<div class="postari-list">
-		<div class="postari-list-element">
-			<div class="postari-list-element_header">Username : Client</div>
-			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam eligendi natus vero repudiandae in vel eius alias aspernatur tenetur impedit, laboriosam quasi nisi beatae, nobis voluptas placeat illum quae! Quos!
 
-			</p>
-			<div class="postari-list-element_footer"><button>rating</button> <button>Comment</button> <div class="status">Status:Complet</div>
+	<main class="center-page">
+		<div class="postare">
+			<textarea id="text-postare" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
+			<div class="postare-element_footer">
+				<aside>
+					<label>Categorie</label>
+					<select id="categorie">
+            			<option value="masini">Masini</option>
+            			<option value="telefoane">Telefoane</option>
+						<option value="Imobiliare">Imobiliare</option>
+					</select>
+				</aside>
+				<aside>
+					<label>Pret</label>
+					<select id="pret">
+						<option value="Euro">Euro</option>
+					</select>
+				</aside>
+				<aside>
+					<label>Altele</label>
+						<select id="altele">
+						<option value="Imobiliare">Altele</option>
+					</select>
+				</aside>
+			</div>
+			<button>Posteaza</button>
 		</div>
-		<div class="add-comment">
-			<textarea id="casuta-comment" placeholder="add-comment"></textarea><button>posteaza</button>
-		</div>
-			<div class="replies">
-				<div class="buton-raspuns"><button>sageata</button>Reply Sfatuitori </div>
-				<div class="reply_form">
-				<div class="reply_header">Username : Sfatuitori</div>
-			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum expedita deleniti accusantium repellendus soluta harum, delectus velit dolores temporibus tempore eligendi, suscipit eveniet cumque nihil dolorum quo dicta, obcaecati asperiores?
 
-			</p>
-					<div class="reply_footer"><button>rating</button><button>Comment</button>
-					</div>
+		<div class="postari-list">
+			<div class="postari-list-element">
+				<div class="postari-list-element_header">Username : Client</div>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+					Magnam eligendi natus vero repudiandae in vel eius alias aspernatur tenetur impedit, 
+					laboriosam quasi nisi beatae, nobis voluptas placeat illum quae! Quos!
+				</p>
+				<div class="postari-list-element_footer">
+					<button>rating</button> 
+					<button>Comment</button> 
+					<div class="status">Status:Complet</div>
 				</div>
-			<!-- 2 -->
-			<div class="reply_form">
-				<div class="reply_header">Username : Sfatuitori</div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dicta. Sint maiores voluptatum possimus nam aliquam dolorem laudantium facere vero 
-					dolor tenetur porro ipsa unde quibusdam ratione, nesciunt quo perspiciatis?
-				</p>
-						<div class="reply_footer"><button>rating</button><button>Comment</button>
+				<div class="add-comment">
+					<textarea id="casuta-comment" placeholder="add-comment"></textarea>
+					<button>posteaza</button>
+				</div>
+				<div class="replies">
+					<button class="buton-raspuns">sageata</button>
+					<div class="reply_form">
+						<div class="reply_header">Username : Sfatuitori</div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+							Nostrum expedita deleniti accusantium repellendus soluta harum,
+						 	delectus velit dolores temporibus tempore eligendi, 
+						 	suscipit eveniet cumque nihil dolorum quo dicta, obcaecati asperiores?
+						</p>
+						<div class="reply_footer">
+							<button>rating</button>
+							<button>Comment</button>
 						</div>
-			</div>
-			<div class="reply_form">
-				<div class="reply_header">Username : Sfatuitori</div>
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente natus porro exercitationem fuga rem laborum excepturi, eos aliquid. Perspiciatis dolor quo veritatis, modi quasi harum adipisci? Eveniet sint iure laudantium.
-				</p>
-						<div class="reply_footer"><button>rating</button><button>Comment</button>
+						<div class="add-comment">
+							<textarea id="casuta-comment" placeholder="add-comment"></textarea>
+							<button>posteaza</button>
 						</div>
+					</div>
+						<!-- 2 -->
+					<div class="reply_form">
+						<div class="reply_header">Username : Sfatuitori</div>
+						<p>	Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dicta. 
+							Sint maiores voluptatum possimus nam aliquam dolorem laudantium facere vero 
+							dolor tenetur porro ipsa unde quibusdam ratione, nesciunt quo perspiciatis?
+						</p>
+						<div class="reply_footer">
+							<button>rating</button>
+							<button>Comment</button>
+						</div>
+					</div>
+					<div class="reply_form">
+						<div class="reply_header">Username : Sfatuitori</div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente natus porro exercitationem fuga rem laborum excepturi, eos aliquid. Perspiciatis dolor quo veritatis, modi quasi harum adipisci? Eveniet sint iure laudantium.
+						</p>
+						<div class="reply_footer">
+							<button>rating</button>
+							<button>Comment</button>
+						</div>
+					</div>
+					<!-- Raspunsuri -->
+				</div>
+				<!-- prima postare --> 
 			</div>
-			<!-- Raspunsuri -->
+				<!-- #2 -->
+			<div class="postari-list-element">
+				<div class="postari-list-element_header">Username : Client</div>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
+				<div class="postari-list-element_footer">
+					<button>rating</button>
+					<button>Comment</button> 
+					<div class="status">Status:Complet</div>
+				</div>
 			</div>
-			<!-- prima postare --> 
-			</div>
-
-			<!-- #2 -->
-		<div class="postari-list-element">
-			<div class="postari-list-element_header">Username : Client</div>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ipsum amet dolorem possimus labore reiciendis architecto asperiores. Nihil alias dolore totam reiciendis beatae. Aut enim, fuga ratione neque similique amet.
-			<div class="postari-list-element_footer"><button>rating</button> <button>Comment</button> <div class="status">Status:Complet</div>
-			</div>
+			<!-- toate postarile  -->
 		</div>
-<!-- toate postarile  -->
-		</div>
-	<!-- pagina centrala -->
-	</div>
-	</div>
+		<!-- pagina centrala -->
+	</main>
 	<footer>
-		<section><h1>Social</h1>
+		<section>
+			<h2>Social</h2>
 			<p>Facebook</p>
 			<p>Instagram</p>
 			<p>Watsapp</p>
-			</section>
-		<section><h1>About</h1>
+		</section>
+		<section>
+			<h2>About</h2>
 			<p>@Site smecher srl</p>
 		</section>
-		<section><h1>Contact</h1>
-		
-		<p>Nr telefon</p>
+		<section>
+			<h2>Contact</h2>
+			<p>Nr telefon</p>
 		</section>
 		<!-- pt bara de navigare -->
-		<script>
-			function myFunction() {
-			  var x = document.getElementById("myTopnav");
-			  if (x.className === "topnav") {
-				x.className += " responsive";
-			  } else {
-				x.className = "topnav";
-			  }
-			}
-			</script>
+	</footer>
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+			else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
 </body>
 </html>
