@@ -26,13 +26,12 @@ body
 
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #252a34;
 }
-
 .topnav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #eaeaea;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -40,13 +39,48 @@ body
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #eaeaea;
   color: black;
 }
 
 .topnav a.active {
-  background-color: #28527a;
+  background-color: #08d9d6;
   color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+/* cutie username + meniu JS SOON */
+.userbox{
+  vertical-align: middle;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  float:left;	
+  text-decoration: none;
+  border:none;
+  cursor:pointer;
+  outline: 0;
+}
+.Username{
+  position: absolute;
+  right:0;
+  top:0;
+   background-color: #00adb5; /*culoare casuta */
+}
+/* aliniere text + meniul? */
+.Username label{
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: #00adb5;
+
 }
 
 
@@ -134,22 +168,52 @@ body
                    0 0 100px #7d00b8;
 }
 
-footer {
-  background-color: #28527a;
-  color: white;
-  position: static;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+footer{
+  background-color: #252a34;
+  display: flex;
+  padding-bottom: 1em;
+  color: whitesmoke;
+  border-top: 1px solid #0ca819;
+  
+ 
+}
+footer>section{
+  flex:1;
   text-align: center;
-  margin-top:2%;
 }
 
 
-@media screen and (max-width: 700px) 
-{
+@media screen and (max-width: 720px) {
   .container
   {
     border:none;
   }
-}
+  /* .topnav a:not(:first-child) {display: none;} */
+  .topnav a {display: none;}
+  .topnav a:first-child{
+      margin-top:48px;
+  }
+  
+  .topnav a.icon {
+    float: left;
+    display: block;
+  }
+
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .Username {
+      float: none;
+      display: block;
+      text-align: left;
+      margin-right:0px;
+    }
+  }

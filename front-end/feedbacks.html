@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
     <link rel="stylesheet" href="feedbacks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="topnav">
-        <a href="./home.html">Home</a>
-        <a class="active" href="#">Sfatuitori</a>
-        <a href="#">About</a>
-        <a href="#page_footer">Contact</a>
-    </nav>
+	<header class="topnav" id="myTopnav">
+		<a href="./home.html">Home</a>
+		<a class="active" href="./feedbacks.html">Sfatuitori</a>
+		<a href="https://github.com/AzdHyperman/WebProject">About</a>
+		<a href="#">Contact</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+		<div class="Username"><button id="avatar-btn" class="userbox"><img src="#" alt="avatar"></button><label href="#">Username</label> </div>
+	</header>
 
     <main class="container">
         <div class="post">
@@ -23,7 +26,7 @@
                 eaque explicabo maxime quam ipsa cumque laudantium voluptatem quis repellendus minima possimus? 
                 Blanditiis fugit corrupti eum. Earum quisquam omnis fuga sunt adipisci alias placeat commodi eius culpa corporis. Officia deserunt quis mollitia ducimus?
             <div class="post-footer">
-                <button>Answer</button>
+                <button>Raspunde</button>
             </div>
         </div>
         <div class="post">
@@ -33,7 +36,7 @@
                 dolorem adipisci animi labore? Nulla consequatur quae necessitatibus ad architecto amet 
                 doloribus dolorem quis voluptatum esse! Tempore, voluptas! Quidem optio rerum dolorum odio temporibus eius, maxime nobis corporis?
             <div class="post-footer">
-               <button>Answer</button>
+               <button>Raspunde</button>
             </div>
         </div>
         <div class="post">
@@ -44,11 +47,41 @@
                 Consectetur animi libero omnis quis natus dolor rem quibusdam nisi officiis, 
                 similique est eum tenetur ex corrupti architecto, ducimus, in dolorum! Voluptatem, voluptas nisi.
             <div class="post-footer">
-                <button>Answer</button>
+                <button>Raspunde</button>
             </div>
         </div>
     </main>
     
-    <footer id="page_footer">Copyright</footer>
+    <footer id="page_footer">
+		<section>
+			<h2>Social</h2>
+			<p>Facebook</p>
+			<p>Instagram</p>
+			<p>Watsapp</p>
+		</section>
+		<section>
+			<h2>About</h2>
+			<p>@Site smecher srl</p>
+		</section>
+		<section>
+			<h2>Contact</h2>
+			<p>Nr telefon</p>
+		</section>
+    </footer>
+<!-- bara navigare responsive  -->
+    <script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+			else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
 </body>
 </html>
