@@ -1,0 +1,35 @@
+@media only screen and (max-width: 720px)
+{
+    body
+    {
+        background-size:auto ;
+    }
+
+    .titlu_proiect
+    {
+        font-size: 3vw;
+        display:flex;
+        justify-content: flex-end ;
+        flex-wrap: wrap ;
+    }
+
+    .form_login button, .form_register button
+    {
+        padding: 3%;
+        font-size: 125%;
+    }
+
+    .login_register
+    {
+        width: 90%;
+    }
+
+    #switch_link_to_login, 
+    #text_switch_register,
+    #switch_link_to_register,
+    #text_switch_login
+    {
+        font-size: 3vw;
+    }
+}
+
