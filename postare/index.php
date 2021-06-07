@@ -16,8 +16,15 @@ switch ($action)
         {echo"is logged in<br>";
         $login=new Login();
         // functiile pentru login 
-        
+        $a=$_REQUEST["username"];
+        $b=$_REQUEST["parola"];
+        if(strlen($login->verifyLogin($a,$b))>0){
+            setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
+            header("Location: index.php");
+        }
+        else header("Location: index.php?action=login&message=invalid data");
         }//end if
+        require_once ("view/login.php");
         break;
     case "logout":
         if(isset($_POST["logoutbtn"]))
@@ -38,10 +45,10 @@ switch ($action)
         if(isset($_POST["add"]))
         {
             //$postare=new CPostare();
-            $username=$_POST['username'];
+            $username=$_POST['username'];//session or cookie
             $text=$_POST['text'];
             $categorie=$_POST['categorie'];
-            $rank=$_POST['rank'];
+            $rank=$_POST['rank'];//session or cookie from login()
             $postare = new Postare();
             $insertId=$postare->addPostare($username,$rank,$categorie,$text);
             if(empty($insertId))
@@ -78,9 +85,8 @@ switch ($action)
         $post_id = $_GET["post_id"];
         $postare=new Postare();
         $postare->deletePostarebyID($post_id);
-        
         $result = $postare->getPostari();
-        require_once "view/postari.php";
+        require_once "view/home.php";
         break;
 
     default:

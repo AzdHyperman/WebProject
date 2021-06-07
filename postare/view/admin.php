@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../css/normalsize/navbar.css">
-	<link rel="stylesheet" href="../css/normalsize/footer.css">
-	<link rel="stylesheet" href="../css/normalsize/admin.css">
-	<link rel="stylesheet" href="../css/responsive/adminR.css">
+	<link rel="stylesheet" href="view/css/normalsize/navbar.css">
+	<link rel="stylesheet" href="view/css/normalsize/footer.css">
+	<link rel="stylesheet" href="view/css/normalsize/admin.css">
+	<link rel="stylesheet" href="view/css/responsive/adminR.css">
     <title>Log page</title>
 </head>
 <body>

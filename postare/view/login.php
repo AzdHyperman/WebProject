@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>PuAC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/normalsize/login.css">
-        <link rel="stylesheet" href="../css/responsive/loginR.css">
+        <link rel="stylesheet" href="view/css/normalsize/login.css">
+        <link rel="stylesheet" href="view/css/responsive/loginR.css">
     </head>
     <body>
        <header class="titlu_proiect">
@@ -19,15 +19,15 @@
                 
                 <div>
                     <label for="loginEmail">Email</label>
-                    <input type="text"  name="email" id="loginEmail" placeholder="Email...">
+                    <input type="text"  name="username" id="loginEmail" placeholder="user...">
                 </div> 
 
                 <div>     
                     <label for="loginPassword">Password</label>
-                    <input type="password" required name="pass" id="loginPassword" placeholder="Password...">
+                    <input type="password" required name="parola" id="loginPassword" placeholder="Password...">
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit" name="loginbtn">Login</button>
                 
                 <p id="text_switch_login"> Daca nu ai cont,</p>
                 <a id="switch_link_to_register" onclick="hideLogin()" href="#">Switch to Register</a>
@@ -56,7 +56,7 @@
                     <input type="password" required name="pass" id="registeredPassword" placeholder="Password...">
                 </div>
 
-                <button type="submit">Register</button>
+                <button type="submit" name="registerbtn">Register</button>
 
                 <p id="text_switch_register"> Daca ai deja cont,</p>
                 <a id="switch_link_to_login" onclick="hideRegister()" href="#">Switch to Login</a>

@@ -14,7 +14,7 @@
 </head>
 <body>
 	<header class="topnav" id="myTopnav">
-		<a class="active" href="./home.html">Home</a>
+		<a class="active" href="index.php">Home</a>
 		<a href="./feedbacks.html">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#page_footer">Contact</a>
@@ -24,10 +24,10 @@
 				<img class="avatar" alt="Profile" src="../imagini/default-avatar.png"></button>
 				<label href="#">Username</label> 
 				<div class="dropdown-content">
-					<a href="./profile.html">Profile</a>
-					<a href="./admin.html">Admin</a>
+					<a href="./profile.php">Profile</a>
+					<a href="./admin.php">Admin</a>
 					<a href="#">DarkMode?</a>
-					<a href="./login.html">Logout</a>
+					<a href="./login.php">Logout</a>
 				</div>
 		</div>
 	</header>
@@ -69,6 +69,14 @@
 					<div class="postari-list-element_footer">
 					<button>rating</button>
 					<button>Comment</button> 
+					<a class="btnEditAction"
+                        href="index.php?action=edit-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
+                        EDIT
+                        </a>
+                        <a class="btnDeleteAction" 
+                        href="index.php?action=delete-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
+                        DELETE
+                        </a>
 					<div class="status"><?php echo "Status: ".$result[$k]["stats"];?></div>
 				</div>
 			</div>
