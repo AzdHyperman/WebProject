@@ -1,0 +1,168 @@
+html 
+{
+    height: 100%;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar 
+{
+    display: none;
+}
+
+body 
+{
+    
+    margin:0;
+    padding:0;
+    font-family:'Courier New', Courier, monospace;
+    background-size: auto;
+    background-attachment: fixed;
+    background-image: linear-gradient(to left bottom, #393e46, #3f505f, #3e6478, #37798f, #288fa2, #288fa2, #288fa2, #288fa2, #37798f, #3e6478, #3f505f, #393e46);
+}
+
+.titlu_proiect
+{
+    color: #CC0050;
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap ;
+    font-size: 150%;
+    animation: titlu__proiect .75s  infinite alternate;
+}
+
+.titlu_proiect h1
+{
+    padding:1%;
+}
+
+@keyframes titlu__proiect {
+    from {
+      text-shadow:
+      0 0 10px #00adb5,
+      0 0 20px #393e46,
+      0 0 30px #222831;
+    }
+    to {
+      text-shadow:
+      0 0 10px #222831,
+      0 0 20px #393e46,
+      0 0 30px #00adb5,;
+    }
+  }
+
+.login_register
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+    margin:auto;
+    
+}
+
+.form_login, .form_register
+{
+    display:flex;
+    flex-direction: column;
+    padding:15%;
+}
+
+.form_register
+{
+    display:none;
+}
+
+.form_login button, .form_register button
+{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:5px;
+    text-align: center;
+    align-self: center;
+    background-color:#00adb5;
+    font-family: 'Courier New', Courier, monospace;
+    color:black;
+    text-transform: uppercase;
+    outline: 0;
+    width: auto;
+    padding:2%;
+    font-size:100%;
+    cursor: pointer;
+    transition:all 0.2s;
+    border:none;
+}
+
+.form_login button:hover , .form_register button:hover
+{
+    background: #7d00b8;
+    color: #fff;
+    border-radius: 3%;
+    box-shadow: 0 0 5px #7d00b8,
+              0 0 25px #7d00b8,
+              0 0 50px #7d00b8,
+              0 0 100px #7d00b8;
+}
+
+
+.form_login div, 
+.form_register div
+{
+    display:flex;
+    flex-direction: column;
+    margin-bottom:10px;
+    color:#222831;
+    font-size:120%;
+    
+}
+
+.form_login input, 
+.form_register input
+{
+    width: 100%;
+    padding: 3px 0;
+    font-size: 11px;
+    color: #222831;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #222831;
+    outline: none;
+    background: transparent;
+}
+
+.form_login input::placeholder, 
+.form_register input::placeholder
+{
+    color:white;
+    font-size: 90%;
+}
+
+
+#switch_link_to_login, 
+#text_switch_register,
+#switch_link_to_register,
+#text_switch_login
+{
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    color:black;
+    font-size: 100%;
+    margin-left: 20%;
+    margin-right:20%;
+    margin-top:5%;
+    margin-bottom: 0%;
+}
+
+
+#switch_link_to_login, #switch_link_to_register
+{
+    margin-top:1%;
+}
+
+#switch_link_to_login:hover, #switch_link_to_register:hover
+{
+    color:white;
+}
+

@@ -22,7 +22,9 @@ class DBController {
                 $resultset[] = $row;
             }
         }
-        return $resultset;
+        if(!empty($resultset)) {
+            return $resultset;
+        }
     }
     
     

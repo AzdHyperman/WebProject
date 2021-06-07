@@ -1,15 +1,39 @@
 <?php
 require_once ("controller/DBController.php");
-require_once ("model/CPostare.php");
+require_once ("model/MPostare.php");
+require_once ("model/MLogin.php");
 
 $db_handle=new DBController();
+//mvc handler
 $action="";
 if(!empty($_GET["action"]))
 {
     $action=$_GET["action"];
 }
 switch ($action)
-{
+{   case "login":
+    if(isset($_POST["loginbtn"]))
+        {echo"is logged in<br>";
+        $login=new Login();
+        // functiile pentru login 
+        
+        }//end if
+        break;
+    case "logout":
+        if(isset($_POST["logoutbtn"]))
+        {
+        echo "you logged out<br>";
+        $login=new Login();
+
+        // functiile pentru logout 
+        }
+        break;
+    case "register":
+        if(isset($_POST["registerbtn"]))
+        echo"you're gonna register<br>";
+        break;
+    case "feedbacks":
+        header("Location: view/feedbacks.php");
     case "add-postare":
         if(isset($_POST["add"]))
         {
@@ -31,24 +55,24 @@ switch ($action)
         }//end if add
          $postare = new Postare();
          $result = $postare->getPostari();
-        require_once "view/postari.php";
+        require_once "view/home.php";
         break;
     case "edit-postare":
         $post_id=$_GET['post_id'];
         $postare=new Postare();
 
-        if(isset($_POST['add']))
-        {
+        if(isset($_POST['edit']))
+        { 
             $username=$_POST["username"];
             $rank=$_POST["rank"];
             $categorie=$_POST["categorie"];
             $text=$_POST["text"];
             
-            $postare->editPostare($username,$rank,$categorie,$text,$postare_id);
-            header("Location :index.php");
+            $postare->editPostare($username,$rank,$categorie,$text,$post_id);
+            header("Location:index.php");
         }
         $result=$postare->getPostariById($post_id);
-        require_once "view/postare-edit.php";
+        require_once "view/edit-postari.php";
         break;
     case "delete-postare":
         $post_id = $_GET["post_id"];
@@ -63,7 +87,7 @@ switch ($action)
         $postare = new Postare();
         $result = $postare->getPostari();
         //$result= $postare->getPostariById(51);
-        require_once "view/postari.php";
+        require_once "view/home.php";
         break;
 
 }//end switch

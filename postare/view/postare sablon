@@ -1,0 +1,62 @@
+			<div class="postari-list-element">
+				<div class="postari-list-element_header">Username : Client</div>
+				<p>
+					Acesta este un text pentru a umple acest box pentru prezentarea front-end-ului , 
+					urmand si fie text ce va fi stocat in baza de date, text reprezentant cerinta clientului,
+					raspunsuri, comentarii, note, linkuri etc.. 
+				</p>
+				<div class="postari-list-element_footer">
+					<button>rating</button> 
+					<button>Comment</button> 
+					<div class="status">Status:Complet</div>
+				</div>
+				<div class="add-comment">
+					<textarea id="casuta-comment" placeholder="add-comment"></textarea>
+					<button>posteaza</button>
+				</div>
+				<div class="replies">
+					<button id="buton-raspuns">sageata</button>
+					<div class="reply_form">
+						<div class="reply_header">Username : Sfatuitori</div>
+						<p>
+							Acesta este un text pentru a umple acest box pentru prezentarea front-end-ului , 
+							urmand si fie text ce va fi stocat in baza de date, text reprezentant cerinta clientului,
+							raspunsuri, comentarii, note, linkuri etc.. 
+						</p>
+						<div class="reply_footer">
+							<button>rating</button>
+							<button>Comment</button>
+						</div>
+						<div class="add-comment">
+							<textarea id="casuta-comment" placeholder="add-comment"></textarea>
+							<button>posteaza</button>
+						</div>
+					</div>
+						<!-- 2 -->
+					<div class="reply_form">
+						<div class="reply_header">Username : Sfatuitori</div>
+						<p>	
+							Acesta este un text pentru a umple acest box pentru prezentarea front-end-ului , 
+							urmand si fie text ce va fi stocat in baza de date, text reprezentant cerinta clientului,
+							raspunsuri, comentarii, note, linkuri etc.. 
+						</p>
+						<div class="reply_footer">
+							<button>rating</button>
+							<button>Comment</button>
+						</div>
+					</div>
+					<div class="reply_form">
+						<div class="reply_header">Username : Sfatuitori</div>
+						<p>
+							Acesta este un text pentru a umple acest box pentru prezentarea front-end-ului , 
+								urmand si fie text ce va fi stocat in baza de date, text reprezentant cerinta clientului,
+							raspunsuri, comentarii, note, linkuri etc.. 
+						</p>
+						<div class="reply_footer">
+							<button>rating</button>
+							<button>Comment</button>
+						</div>
+					</div>
+					<!-- Raspunsuri -->
+				</div>
+                </div>

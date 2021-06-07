@@ -34,7 +34,9 @@
                     <th><strong>Rank</strong></th>
                     <th><strong>text</strong></th>
                     <th><strong>categorie</strong></th>
+                    <th><strong>post_ID</strong></th>
                     <th><strong>Action</strong></th>
+                    
 
                 </tr>
             </thead>
@@ -48,8 +50,9 @@
                     <td><?php echo $result[$k]["rank"]; ?></td>
                     <td><?php echo $result[$k]["text"]; ?></td>
                     <td><?php echo $result[$k]["categorie"]; ?></td>
+                    <td><?php echo $result[$k]["post_id"]; ?></td>
                     <td><a class="btnEditAction"
-                        href="index.php?action=edit-postaret&post_id=<?php echo $result[$k]["post_id"]; ?>">
+                        href="index.php?action=edit-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
                         EDIT
                         </a>
                         <a class="btnDeleteAction" 

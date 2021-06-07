@@ -1,0 +1,108 @@
+html 
+{
+    height: 100%;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar 
+{
+    display: none;
+}
+
+body
+{
+   /* background-color: #fbeeac; */
+    margin:0;
+    padding:0;
+    background-size: auto;
+    background-attachment: fixed;
+    background-image: linear-gradient(to left bottom, #393e46, #3f505f, #3e6478, 
+                                                      #37798f, #288fa2, #288fa2, 
+                                                      #288fa2, #288fa2, #37798f, 
+                                                      #3e6478, #3f505f, #393e46
+                                    );
+
+}
+
+#titlu_proiect
+{
+  color: #CC0050;
+  display:flex;
+  justify-content:center;
+  flex-wrap: wrap ;
+  font-size: 300%;
+  animation: titlu__proiect .75s  infinite alternate;
+}
+/* navigation bar  */
+
+  /* imagine + upload */
+  .profile
+  {
+    display:flex;
+    flex-direction: column;
+  }
+  .profile img{
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin:20px;
+  }
+  .profile input{
+    margin-left: 20px;
+  }
+/* centru  */
+.center-page{
+  display:flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin:auto;
+  margin-top:1%;
+  margin-bottom:1%;
+  width: 90%;
+  border: 1% solid #28527a;
+  border-radius: 5px;
+  box-shadow: 5px 3px 5px 3px #222831;
+  padding: 2%;
+  
+}
+
+.center-page form{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 75%;
+  height: auto;
+  border: 1% solid #28527a;
+  border-radius: 5px;
+  box-shadow: 5px 3px 5px 3px #222831;
+  margin-left: auto;
+}
+form {
+ display:flex;
+ flex-direction: column;
+ margin:2%;
+ padding-left:25%;
+ padding-right:25%;
+ align-self: center;
+}
+
+form label,
+form input
+{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  justify-items: center;
+  
+}
+ form  button{
+   width: 80px;
+   align-self: center;
+ }
+
+
+
+
+
