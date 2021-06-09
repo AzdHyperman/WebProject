@@ -5,21 +5,22 @@ class Logpage{
 
     function __construct()
     {
-        $this->dbhandle=new DBController();
+        $this->db_handle=new DBController();
     }
 //logare,postare,edit,delete
-    function sendLog($type,$info,$username,$user_id)
+    function sendLog($type,$info)
     {
-        $query="INSERT INTO logpage (type,info,username,user_id) VALUES (?,?,?,?)";
-        $paramType="sssi";
-        $paramValue=array($type,$info,$username,$user_id);
+    $query="INSERT INTO logpage (type,info) VALUES (? , ?)";
+    $paramType="ss";
+    $paramValue= array($type,$info);
 
-        $insertId=$this->db_handle->insert($query,$paramValue,$paramValue);
-        return $insertId;
-    }
+    $insertLog = $this->db_handle->insert($query, $paramType, $paramValue);
+    return $insertLog;
+
+    }//end addPostare
     function getLog()
     {
-        $query="SELECT * FROM logpage ORDER BY date";
+        $query="SELECT * FROM logpage ORDER BY data";
         $result=$this->db_handle->runBaseQuery($query);
         return $result;
     }//type :report info: Limbaj neadecvat user:john1111 user_id:122 data:10.12.2021 20:59

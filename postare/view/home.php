@@ -9,25 +9,25 @@
 	<link rel="stylesheet" href="view/css/normalsize/navbar.css">
 	<link rel="stylesheet" href="view/css/normalsize/footer.css">
 	<link rel="stylesheet" href="view/css/responsive/homeR.css">
-	<link rel="stylesheet" href="view/css/responsive/navbar.css">
+	<!-- <link rel="stylesheet" href="view/css/responsive/navbar.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<header class="topnav" id="myTopnav">
 		<a class="active" href="index.php">Home</a>
-		<a href="./feedbacks.html">Sfatuitori</a>
+		<a href="index.php?action=feedbacks">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#page_footer">Contact</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 		<div class="Username">
 			<button class="userbox" onclick="userMenu()">
-				<img class="avatar" alt="Profile" src="../imagini/default-avatar.png"></button>
+				<img class="avatar" alt="Profile" src="view/imagini/default-avatar.png"></button>
 				<label href="#">Username</label> 
 				<div class="dropdown-content">
-					<a href="./profile.php">Profile</a>
-					<a href="./admin.php">Admin</a>
+					<a href="index.php?action=profile">Profile</a>
+					<a href="index.php?action=logpage">Admin</a>
 					<a href="#">DarkMode?</a>
-					<a href="./login.php">Logout</a>
+					<a href="index.php?action=login">Logout</a>
 				</div>
 		</div>
 	</header>
@@ -51,7 +51,7 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<input type="submit" value="Posteaza" name="add" class="button">
+			<button type="submit"  name="add" id="postare" onclick="ajaxpostare()">Posteaza</button>
 			</form>
 		</div>
 
@@ -68,16 +68,21 @@
 						<p><?php echo $result[$k]["text"];?></p> 
 					<div class="postari-list-element_footer">
 					<button>rating</button>
-					<button>Comment</button> 
+					<?php $post_id= $result[$k]["post_id"];?>
+					<button onclick="replybutton">Comment</button> 
 					<a class="btnEditAction"
                         href="index.php?action=edit-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
                         EDIT
                         </a>
                         <a class="btnDeleteAction" 
-                        href="index.php?action=delete-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
+                        href="index.php?action=delete-postare&post_id=<?php echo $result[$k]["post_id"]; ?>" onclick="ajaxpostare()">
                         DELETE
                         </a>
 					<div class="status"><?php echo "Status: ".$result[$k]["stats"];?></div>
+					
+				</div>
+				<div id="add-comment" class="add-comment">
+				<textarea id="casuta-comment" name="text" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
 				</div>
 			</div>
 			<?php } 
@@ -116,22 +121,20 @@
 					x.className = "topnav";
 				}
 		}
-
-		var button = document.getElementById("buton-raspuns");
-		button.onclick = function() {
-			var x = document.getElementsByClassName("reply_form");
-			if (x.style.display !== 'none') 
-			{
-        		x.style.display = 'none';
-    		}
-   			 else 
-			{
-        		x.style.display = 'flex';
-   			}
-		}
+		function replybutton()
+		{
+		
+			var x = document.getElementById("add-comment");
+ 			 if (x.style.display === "none") {
+    		x.style.display = "flex";
+  			} else {
+   			 x.style.display = "none";
+  					}
+			}
+		
 		function userMenu() {
   			document.getElementById("myDropdown").classList.toggle("show");
-		}
+		
 
 		// Close the dropdown if the user clicks outside of it
 		window.onclick = function(event) {
@@ -145,7 +148,24 @@
       				}
    				}
  			}
+			}
 		}
+// // ajaxpostare
+// 		function ajaxpostare(){
+// 			var text=document.getElementById("text-postare");
+// 			var categorie=document.getElementById("categorie");
+// 			var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//      document.getElementByClass("postari-list-element").innerHTML = this.responseText;
+//     }
+//   };
+//   xhttp.open("GET", "index.php", true);
+//   xhttp.send();
+//   					}
+
+
+		
 	</script>
 </body>
 </html>

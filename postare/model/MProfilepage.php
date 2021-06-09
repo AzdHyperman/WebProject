@@ -1,32 +1,32 @@
 <?php
-require_once ("controller/DBController.php")
+require_once ("controller/DBController.php");
 class userProfile
 {
     function __construct()
     {
-        $db_handle=new DBController();
+        $this->db_handle=new DBController();
     }
-    function editProfile()
+    function editProfile($username,$email,$password,$user_id)
     {
-        $sql="UPDATE userprofile SET username=?,email=?,password=? where user_id=?";
+        $sql="UPDATE users SET username=?,email=?,password=? where user_id=?";
         $paramType="sssi";
         $paramValue=array($username,$email,$password,$user_id);
 
         $this->db_handle->update($sql,$paramType,$paramValue);
     }
-    function uploadPhoto()
+    function uploadPhoto($avatarimg,$user_id)
     {
-        $sql="UPDATE userprofile SET avatarimg=? where user_id=? ";
-        $paramType="bi";
+        $sql="UPDATE users SET avatar=? where user_id=? ";
+        $paramType="si";
         $paramValue=array($avatarimg,$user_id);
         $this->db_handle->update($sql,$paramType,$paramValue);
     }
     function getProfile($user_id)
     {
-        $sql="SELECT * from userprofile where id=?";
+        $sql="SELECT * from users where user_id=?";
         $paramType="i";
         $paramValue=array($user_id);
-        $result=$this->db_handle->runQuery();
+        $result=$this->db_handle->runQuery($sql,$paramType,$paramValue);
         return $result;
     }
 

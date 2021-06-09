@@ -13,6 +13,7 @@ html::-webkit-scrollbar
 
 body 
 {
+  
   margin:0;
   padding:0;
   background-size: auto;
@@ -20,8 +21,7 @@ body
   background-image: linear-gradient(to left bottom, #393e46, #3f505f, #3e6478, 
                                                     #37798f, #288fa2, #288fa2, 
                                                     #288fa2, #288fa2, #37798f, 
-                                                    #3e6478, #3f505f, #393e46);
-
+                                                    #3e6478, #3f505f, #393e46);                                                 
 }
 
 

@@ -32,11 +32,20 @@
 	</header>
     <h1 >Activitate Site</h1>
     <div class="ActivityLog">
+	<?php if(!empty($result)) 
+	{foreach($result as $k =>$v)
+	{
+	?>
+	<div class="ActivityLog-elements"><?php echo "Type: ".$result[$k]["type"]." Info: :".$result[$k]["info"]?></div>
+	<?php	
+	}
+	}
+	?>
+        
+        
+        <!-- <div class="ActivityLog-elements">Type:Postare A fost dat un rasuns de Sfatuitor-ul Spoitorul</div>
         <div class="ActivityLog-elements">Type:Login User-ul s-a logat la 10.12.2021 23:59</div>
-        <div class="ActivityLog-elements">Type:Postare A fost postat un articol de GodFather23</div>
-        <div class="ActivityLog-elements">Type:Postare A fost dat un rasuns de Sfatuitor-ul Spoitorul</div>
-        <div class="ActivityLog-elements">Type:Login User-ul s-a logat la 10.12.2021 23:59</div>
-        <div class="ActivityLog-elements">Type:Login User-ul s-a logat la 10.12.2021 23:59</div>
+        <div class="ActivityLog-elements">Type:Login User-ul s-a logat la 10.12.2021 23:59</div> -->
         <Button>save as pdf</Button>
         <Button>save as csv</Button>
         <Button>save as png</Button>
