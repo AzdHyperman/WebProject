@@ -36,7 +36,7 @@
 
 	<main class="center-page">
 		<div class="postare">
-			<form action="index.php?action=add-postare" method="post">
+			<form id="postareForm" method="post" >
 			<textarea id="text-postare" name="text" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
 			<div class="postare-element_footer">
 				<aside>
@@ -51,7 +51,7 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<button type="submit"  name="add" id="postare" onclick="ajaxpostare()">Posteaza</button>
+			<button type="submit"  name="add" >Posteaza</button>
 			</form>
 		</div>
 
@@ -59,11 +59,12 @@
 		<?php
 			if(! empty($result)) 
 			{
+				echo json_encode($result);
 			foreach($result as  $k => $v)
 			{
 			?>	
 			<!-- #2 -->
-			<div class="postari-list-element">
+			<div class="postari-list-element" >
 				<div class="postari-list-element_header"> <?php echo "Username: ".$result[$k]["username"]." Rank: ".$result[$k]["rank"]." Categorie: ".$result[$k]["categorie"];?></div>
 						<p><?php echo $result[$k]["text"];?></p> 
 					<div class="postari-list-element_footer">
@@ -75,7 +76,7 @@
                         EDIT
                         </a>
                         <a class="btnDeleteAction" 
-                        href="index.php?action=delete-postare&post_id=<?php echo $result[$k]["post_id"]; ?>" onclick="ajaxpostare()">
+                        href="index.php?action=delete-postare&post_id=<?php echo $result[$k]["post_id"]; ?>" >
                         DELETE
                         </a>
 					<div class="status"><?php echo "Status: ".$result[$k]["stats"];?></div>
@@ -107,7 +108,8 @@
 			<a href="https://github.com/AzdHyperman/WebProject">Repository</a>
 		</section>
 	</footer>
-
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
 		function myFunction() 
 		{
@@ -149,23 +151,26 @@
    				}
  			}
 			}
-		}
-// // ajaxpostare
-// 		function ajaxpostare(){
-// 			var text=document.getElementById("text-postare");
-// 			var categorie=document.getElementById("categorie");
-// 			var xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//      document.getElementByClass("postari-list-element").innerHTML = this.responseText;
-//     }
-//   };
-//   xhttp.open("GET", "index.php", true);
-//   xhttp.send();
-//   					}
+		}		
+$(document).ready(function(){
+      $("#postareForm").submit(function() {
+                    var text= $("#text-postare").val();
+                    var categorie= $("#categorie").val();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "index.php?action=add-postare",
+                        data: "text=" + text+ "&categorie=" + categorie,
+                        success: function(data) {
+                           alert(text);
+                        }
+                    });
 
 
-		
+                });
+        });
+
+
 	</script>
 </body>
 </html>

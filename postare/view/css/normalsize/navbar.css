@@ -60,7 +60,9 @@
   background-size:cover;
   width:48px;
   height:48px;
+  display:block;
 }
+
 
   .dropdown-content {
     display: none;

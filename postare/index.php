@@ -6,17 +6,7 @@ require_once ("model/MLogpage.php");
 require_once ("model/MProfilepage.php");
 
 $db_handle=new DBController();
-$logtoken= new Login();
-        // if(isset($_COOKIE["token"])){
-        
-        //     if($logtoken->verifyToken($_COOKIE["token"]))
-        //    // echo "true";
-        //     // else header("Location:index.php?action=login&message=tokenset");
-        //      header("Location: index.php");
-        //     }
-        //     else header("Location:index.php?action=register");
-        //     global $user_id;
-        //     $user_id=$logtoken->getIdFromToken($_COOKIE["token"]);
+
 //mvc handler
 $action="";
 if(!empty($_GET["action"]))
@@ -28,15 +18,20 @@ switch ($action)
 
     if(isset($_POST["loginbtn"]))
         {echo"is logged in<br>";
-        $login=new Login();
+
         // functiile pentru login 
-        $a=$_REQUEST["username"];
-        $b=$_REQUEST["password"];
-        if(strlen($login->verifyLogin($a,$b))>0){
-            setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
-            header("Location: index.php");
-        }
-        else header("Location: index.php?action=login&message=invalid data&value=$login");
+         $a=$_REQUEST["username"];
+         $b=$_REQUEST["password"];
+         $login=new Login();
+         $result=$login->verifyLogin($a,$b);
+         echo json_encode($result)."<br>";
+         setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
+         echo $_COOKIE["token"];
+        //  if(strlen($login->verifyLogin($a,$b))>0){
+        //     setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
+        //     header("Location: index.php");
+        // }
+        // else header("Location: index.php?action=login&message=invalid data");
         }//end if
         
         require_once ("view/login.php");
@@ -46,6 +41,7 @@ switch ($action)
         {
         echo "you logged out<br>";
         $login=new Login();
+        $login->deleteToken($user_id);
 
         // functiile pentru logout 
         }
@@ -155,7 +151,9 @@ switch ($action)
         }//end if add
          $postare = new Postare();
          $result = $postare->getPostari();
+         
         require_once "view/home.php";
+        
         break;
     case "edit-postare":
         $post_id=$_GET['post_id'];
@@ -193,10 +191,30 @@ switch ($action)
         break;
 
     default:
+    $logtoken= new Login();
+        //  if(isset($_COOKIE["token"])){
+    
+        //     if($logtoken->verifyToken($_COOKIE["token"]))
+        //  echo "true";
+    //      else header("Location:index.php?action=login&message=tokenset");
+    //      echo $_COOKIE["token"];   
+    //      //  header("Location: index.php");
+    //         }
+    //     else header("Location:index.php");
+        
+    //     global $user_id;
+    //     $result=$logtoken->getIdFromToken($_COOKIE["token"]);
+    //     $user_id=$result[0]["user_id"];
+    //     if(empty($user_id))
+    //     echo "este gol";
+    
+    
         $postare = new Postare();
         $result = $postare->getPostari();
+        // echo json_encode($result[0]["post_id"])."<br>";
         //$result= $postare->getPostariById(51);
         require_once "view/home.php";
+        
         break;
 
 }//end switch

@@ -19,14 +19,15 @@
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 		<div class="Username">
 			<button class="userbox" onclick="userMenu()">
-                <img class="avatar"alt="Profile" src="view/imagini/default-avatar.png">
+                <img class="avatar" alt="Profile" src="view/imagini/<?php echo $result[0]['avatar'];?>">
             </button>
+            <!-- <input class="avatar" type="image" src="view/imagini/<?php echo $result[0]['avatar'];?>" alt="" width="48px" height="48px"> -->
 				<label href="#">Username</label> 
 				<div class="dropdown-content">
-					<a href="./profile.html">Profile</a>
-					<a href="./admin.html">Admin</a>
+					<a href="index.php?action=profile">Profile</a>
+					<a href="index.php?action=logpage">Admin</a>
 					<a href="#">DarkMode</a>
-					<a href="./login.html">Logout</a>
+					<a href="index.php?action=logout">Logout</a>
 				</div>
 		</div>
 	</header>

@@ -31,10 +31,10 @@ min-height: 100vh;
 				<img src="#" alt="avatar"></button>
 				<label href="#">Username</label> 
 				<div class="dropdown-content">
-					<a href="./profile.html">Profile</a>
-					<a href="./admin.html">Admin</a>
+					<a href="index.php?action=profile">Profile</a>
+					<a href="index.php?action=logpage">Admin</a>
 					<a href="#">DarkMode?</a>
-					<a href="./login.html">Logout</a>
+					<a href="index.php?action=logout">Logout</a>
 				</div>
 		</div>
 	</header>

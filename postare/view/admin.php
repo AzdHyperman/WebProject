@@ -12,8 +12,8 @@
 </head>
 <body>
 	<header class="topnav" id="myTopnav">
-		<a class="active" href="./home.html">Home</a>
-		<a href="./feedbacks.html">Sfatuitori</a>
+		<a href="index.php">Home</a>
+		<a href="index.php?action=feedbacks">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#page_footer">Contact</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
@@ -23,10 +23,10 @@
 			</button>
 				<label href="#">Username</label> 
 				<div class="dropdown-content">
-					<a href="./profile.html">Profile</a>
-					<a href="./admin.html">Admin</a>
+					<a href="index.php?action=profile">Profile</a>
+					<a href="index.php?action=logpage">Admin</a>
 					<a href="#">DarkMode?</a>
-					<a href="./login.html">Logout</a>
+					<a href="index.php?action=logout">Logout</a>
 				</div>
 		</div>
 	</header>
