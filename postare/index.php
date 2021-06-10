@@ -7,18 +7,8 @@ require_once ("model/MProfilepage.php");
 
 $db_handle=new DBController();
 $logtoken= new Login();
-if(isset($_COOKIE["token"])){
-
-if($logtoken->verifyToken($_COOKIE["token"]))
-echo "";
-else{ header("Location:index.php?action=login&message=tokenset");
-
-   }
-}else {header("Location: index.php?action=login");}
-
-
 $result=$logtoken->getIdFromToken($_COOKIE["token"]);
-
+    
 $user_id=$result[0]["user_id"];
 $result2=$logtoken->getUsersById($user_id);
 $username=$result2[0]["username"];
@@ -221,6 +211,23 @@ switch ($action)
         break;
 
     default:
+    $logtoken= new Login();
+    if(isset($_COOKIE["token"])){
+    
+    if($logtoken->verifyToken($_COOKIE["token"]))
+    echo "";
+    else{ header("Location:index.php?action=login&message=tokenset");
+    
+       }
+    }else {header("Location: index.php?action=login");}
+    
+    $result=$logtoken->getIdFromToken($_COOKIE["token"]);
+    
+$user_id=$result[0]["user_id"];
+$result2=$logtoken->getUsersById($user_id);
+$username=$result2[0]["username"];
+$avatar=$result2[0]["avatar"];
+$rank=$result2[0]["rank"];
 
         // echo $user_id."<br>";
         if(empty($user_id))
