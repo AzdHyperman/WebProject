@@ -32,13 +32,22 @@ class Login {
         $conn=$username.$password."secretcode";
         $result=$this->conn->runQuery($sql,$paramType,$paramValue);
         $user_id=$result[0]["user_id"];
+        $this->user_id=$user_id;
+        // echo $user_id."<br>";
         if($result>0)
-        $this->addToken(md5($conn),$user_id);
-        // return md5($conn);
-        return $user_id;
+        //  $this->addToken(md5($conn),$user_id);
+         return md5($conn);
+        //  return $result;
          
     }
-
+    function getUsersById($user_id)
+    {
+        $sql="SELECT * FROM users where user_id=?";
+        $paramType="i";
+        $paramValue=array($user_id);
+        $result2=$this->conn->runQuery($sql,$paramType,$paramValue);
+        return $result2;
+    }
      function verifyToken($token){
         $check = false;
         // $stmt = mysqli_prepare($this->conn, "SELECT * from tokens where token=?"); 
@@ -78,7 +87,7 @@ class Login {
         if(!$check){
         $sql="INSERT INTO tokens (user_id,token) VALUES (?,?)";
         $paramType="is";
-        $paramValue=array($token,$user_id);
+        $paramValue=array($user_id,$token);
 
         $insertId=$this->conn->insert($sql,$paramType,$paramValue);
         return $insertId;
@@ -87,11 +96,15 @@ class Login {
     }
 
      function verifyEmail($email){
-        $stmt=mysqli_prepare($this->conn,"select * from users where email=?");
-        mysqli_stmt_bind_param($stmt,'s',$email);
-        mysqli_stmt_execute($stmt);
-        $stmt->store_result();
-        if($stmt->num_rows>0)
+        // $stmt=mysqli_prepare($this->conn,"select * from users where email=?");
+        // mysqli_stmt_bind_param($stmt,'s',$email);
+        // mysqli_stmt_execute($stmt);
+        // $stmt->store_result();
+        $sql="SELECT * FROM users where email=?";
+        $paramType="s";
+        $paramValue=array($email);
+        $result=$this->conn->runQuery($sql,$paramType,$paramValue);
+        if($result>0)
             return false;
         return true;
     }
@@ -103,9 +116,9 @@ class Login {
         // mysqli_stmt_bind_param($stmt, 'sss', $email, $nume, $parola);
         // mysqli_stmt_execute($stmt);
         // mysqli_stmt_close($stmt);
-        $sql="INSERT INTO user (username, parola) VALUES (?,?)";
-        $paramType="ss";
-        $paramValue=array($username,$parola);
+        $sql="INSERT INTO users (email,username,password) VALUES (?,?,?)";
+        $paramType="sss";
+        $paramValue=array($email,$username,$parola);
         $insertId=$this->conn->insert($sql,$paramType,$paramValue);
         return true;
     }return false;

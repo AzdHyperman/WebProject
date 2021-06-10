@@ -42,18 +42,13 @@
                 </div>
 
                 <div>
-                    <label for="registeredNume">Nume</label>
-                    <input type="text"  name="nume" id="registeredNume" placeholder="Nume...">
-                </div>
-
-                <div>
                     <label for="registeredUsername">Username</label>
                     <input type="text"  name="username" id="registeredUsername" placeholder="Username...">
                 </div>
                 
                 <div>
                     <label for="registeredPassword">Password</label>
-                    <input type="password" required name="pass" id="registeredPassword" placeholder="Password...">
+                    <input type="password" required name="password" id="registeredPassword" placeholder="Password...">
                 </div>
 
                 <button type="submit" name="registerbtn">Register</button>

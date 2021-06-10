@@ -9,11 +9,11 @@ class Postare{
         $this->db_handle = new DBController();
     }
 
-    function addPostare($username,$rank,$categorie,$text)
+    function addPostare($user_id,$username,$rank,$categorie,$text)
     {
-    $query="INSERT INTO postari (username,rank,categorie,text) VALUES (? , ? , ? , ?)";
-    $paramType="ssss";
-    $paramValue= array($username,$rank,$categorie,$text);
+    $query="INSERT INTO postari (user_id,username,rank,categorie,text) VALUES (?, ? , ? , ? , ?)";
+    $paramType="issss";
+    $paramValue= array($user_id,$username,$rank,$categorie,$text);
 
     $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
     return $insertId;
@@ -58,6 +58,18 @@ class Postare{
     }
     function getPostariByUserId($user_id) {
         $query = "SELECT * FROM postari WHERE user_id = ?";
+        $paramType = "i";
+        $paramValue = array(
+            $post_id
+        );
+        
+        $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
+        return $result;
+    }
+
+    //add
+    function get_comment($post_id){
+        $query = "SELECT text FROM postari WHERE post_id = ?";
         $paramType = "i";
         $paramValue = array(
             $post_id

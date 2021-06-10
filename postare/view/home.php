@@ -21,13 +21,13 @@
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 		<div class="Username">
 			<button class="userbox" onclick="userMenu()">
-				<img class="avatar" alt="Profile" src="view/imagini/default-avatar.png"></button>
-				<label href="#">Username</label> 
+				<img class="avatar" alt="Profile" src="view/imagini/<?php echo $avatar;?>"></button>
+				<label href="#"><?php echo $username; ?></label> 
 				<div class="dropdown-content">
 					<a href="index.php?action=profile">Profile</a>
 					<a href="index.php?action=logpage">Admin</a>
 					<a href="#">DarkMode?</a>
-					<a href="index.php?action=login">Logout</a>
+					<a href="index.php?action=logout">Logout</a>
 				</div>
 		</div>
 	</header>
@@ -36,7 +36,7 @@
 
 	<main class="center-page">
 		<div class="postare">
-			<form id="postareForm" method="post" >
+			<form id="postareForm" action="index.php?action=add-postare" method="post" >
 			<textarea id="text-postare" name="text" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
 			<div class="postare-element_footer">
 				<aside>
@@ -51,22 +51,25 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<button type="submit"  name="add" >Posteaza</button>
+			<button type="submit"  name="add"  >Posteaza</button>
 			</form>
 		</div>
 
-		<div class="postari-list">
+		<div class="postari-list" id="postari-list">
 		<?php
+// require_once ("../model/MPostare.php");
+// require_once ("./index.php;");
 			if(! empty($result)) 
 			{
-				echo json_encode($result);
-			foreach($result as  $k => $v)
+				// echo json_encode($result);
+			foreach($result as  $k=> $v)
 			{
-			?>	
+			?>
 			<!-- #2 -->
 			<div class="postari-list-element" >
 				<div class="postari-list-element_header"> <?php echo "Username: ".$result[$k]["username"]." Rank: ".$result[$k]["rank"]." Categorie: ".$result[$k]["categorie"];?></div>
 						<p><?php echo $result[$k]["text"];?></p> 
+						
 					<div class="postari-list-element_footer">
 					<button>rating</button>
 					<?php $post_id= $result[$k]["post_id"];?>
@@ -82,12 +85,13 @@
 					<div class="status"><?php echo "Status: ".$result[$k]["stats"];?></div>
 					
 				</div>
-				<div id="add-comment" class="add-comment">
-				<textarea id="casuta-comment" name="text" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
+				<div class="add-comment">
+					<textarea id="casuta-comment" placeholder="add-comment"></textarea>
+					<button onclick="loadDoc()">posteaza</button>
 				</div>
+				<div class="replies" id="replies"></div>
 			</div>
-			<?php } 
-			}?>
+			<?php }} ?>
 			<!-- toate postarile  -->
 		</div>
 		<!-- pagina centrala -->
@@ -109,7 +113,7 @@
 		</section>
 	</footer>
 		
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 	<script>
 		function myFunction() 
 		{
@@ -152,25 +156,35 @@
  			}
 			}
 		}		
-$(document).ready(function(){
-      $("#postareForm").submit(function() {
-                    var text= $("#text-postare").val();
-                    var categorie= $("#categorie").val();
+// $(document).ready(function(){
+//       $("#postareForm").submit(function() {
+//                     var text= $("#text-postare").val();
+//                     var categorie= $("#categorie").val();
 
-                    $.ajax({
-                        type: "POST",
-                        url: "index.php?action=add-postare",
-                        data: "text=" + text+ "&categorie=" + categorie,
-                        success: function(data) {
-                           alert(text);
-                        }
-                    });
-
-
-                });
-        });
+//                     $.ajax({
+//                         type: "POST",
+//                         url: "index.php?action=add-postare",
+//                         data: "text=" + text+ "&categorie=" + categorie,
+//                         success: function(data) {
+//                            alert(text);
+//                         }
+//                     });
 
 
+//                 });
+//         });
+
+
+// function getPostari(){
+// 	var xhttp = new XMLHttpRequest();
+// 	xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("postari-list-element").innerHTML = this.responseText;
+//     }
+//   };
+//   xhttp.open("GET", "view/postariList.php", true);
+//   xhttp.send();
+// }
 	</script>
 </body>
 </html>

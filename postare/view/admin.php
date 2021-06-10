@@ -19,9 +19,8 @@
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 		<div class="Username">
 			<button class="userbox" onclick="userMenu()">
-				<img class="avatar"alt="Profile" src="../imagini/default-avatar.png">
-			</button>
-				<label href="#">Username</label> 
+			<img class="avatar" alt="Profile" src="view/imagini/<?php echo $avatar;?>"></button>
+				<label href="#"><?php echo $username; ?></label> 
 				<div class="dropdown-content">
 					<a href="index.php?action=profile">Profile</a>
 					<a href="index.php?action=logpage">Admin</a>

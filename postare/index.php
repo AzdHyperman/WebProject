@@ -6,9 +6,30 @@ require_once ("model/MLogpage.php");
 require_once ("model/MProfilepage.php");
 
 $db_handle=new DBController();
+$logtoken= new Login();
+if(isset($_COOKIE["token"])){
 
+if($logtoken->verifyToken($_COOKIE["token"]))
+echo "";
+else{ header("Location:index.php?action=login&message=tokenset");
+
+   }
+}else {header("Location: index.php?action=login");}
+
+
+$result=$logtoken->getIdFromToken($_COOKIE["token"]);
+
+$user_id=$result[0]["user_id"];
+$result2=$logtoken->getUsersById($user_id);
+$username=$result2[0]["username"];
+$avatar=$result2[0]["avatar"];
+$rank=$result2[0]["rank"];
 //mvc handler
 $action="";
+global $user_id;
+global $username;
+global $avatar;
+global $rank;
 if(!empty($_GET["action"]))
 {
     $action=$_GET["action"];
@@ -23,42 +44,48 @@ switch ($action)
          $a=$_REQUEST["username"];
          $b=$_REQUEST["password"];
          $login=new Login();
+         $result="";
          $result=$login->verifyLogin($a,$b);
+         $user_id=$login->user_id;
+         echo $login->user_id."<br>";
          echo json_encode($result)."<br>";
-         setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
-         echo $_COOKIE["token"];
-        //  if(strlen($login->verifyLogin($a,$b))>0){
-        //     setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
-        //     header("Location: index.php");
-        // }
-        // else header("Location: index.php?action=login&message=invalid data");
+         $login->addToken($result,$user_id);
+         if(strlen($login->verifyLogin($a,$b))>0){
+            setcookie("token",$login->verifyLogin($a,$b),time() + (86400 * 30),"/");
+            header("Location: index.php");
+        }
+        else header("Location: index.php?action=login&message=invalid data");
         }//end if
         
         require_once ("view/login.php");
         break;
     case "logout":
-        if(isset($_POST["logoutbtn"]))
-        {
-        echo "you logged out<br>";
-        $login=new Login();
-        $login->deleteToken($user_id);
-
-        // functiile pentru logout 
-        }
+         $logout=new Login();
+        $id=$logout->getIdFromToken($_COOKIE["token"]);
+        setcookie("token",$logout->verifyLogin($a,$b),time() - (86400 * 30),"/");
+        $logout->deleteToken($id);
+        header("Location:index.php?action=login");
         break;
     case "register":
+        if(isset($_POST["registerbtn"]))
+        {
         $register=new Login();
-        if(isset($_REQUEST["registerNume"])
-&& !empty($_REQUEST["registerNume"]) 
-&& isset($_REQUEST["registerEmail"])
-&& !empty($_REQUEST["registerEmail"]) 
-&& isset($_REQUEST["registerPassword"])
-&& !empty($_REQUEST["registerPassword"]) 
+        if(isset($_REQUEST["username"])
+    && !empty($_REQUEST["username"]) 
+    && isset($_REQUEST["email"])
+    && !empty($_REQUEST["email"]) 
+    && isset($_REQUEST["password"])
+    && !empty($_REQUEST["password"]) 
 ){
 
-    if($register->register($_REQUEST["registerEmail"],$_REQUEST["registerNume"],$_REQUEST["registerPassword"])){
-        $a=$_REQUEST["registerEmail"];
-        $b=$_REQUEST["registerPassword"];
+    if($register->register($_REQUEST["email"],$_REQUEST["username"],$_REQUEST["password"])){
+        $a=$_REQUEST["username"];
+        $b=$_REQUEST["password"];
+        $result="";
+         $result=$register->verifyLogin($a,$b);
+         $user_id=$register->user_id;
+         $register->addToken($result,$user_id);
+
     if(strlen($register->verifyLogin($a,$b))>0){
         setcookie("token",$register->verifyLogin($a,$b),time() + (86400 * 30),"/");
         header("Location:index.php");
@@ -67,8 +94,7 @@ switch ($action)
 }else  header("Location:index.php?action=register&message=email is already used");
 
 }else header("Location:index.php?action=register&message=invalid data");
-        // if(isset($_POST["registerbtn"]))
-        // echo"you're gonna register<br>";
+    }   
         break;
     case "feedbacks":
         $postari=new Postare();
@@ -82,8 +108,12 @@ switch ($action)
         require_once "view/admin.php";
         break;
     case "profile":
+
+        
         if(!empty($user_id)){
-        $user_id=$_GET['user_id'];
+        // $user_id=$_GET['user_id'];
+        // echo $user_id."<br>";
+        echo "";
         }
         else {$user_id=1;}
         $profile=new userProfile();
@@ -122,12 +152,12 @@ switch ($action)
         if(isset($_POST["add"]))
         {
             //$postare=new CPostare();
-            $username="defaultUser";//session or cookie
+            // $username="defaultUser";//session or cookie
             $text=$_POST['text'];
             $categorie=$_POST['categorie'];
-            $rank="defaultRank";//session or cookie from login()
+            // $rank="defaultRank";//session or cookie from login()
             $postare = new Postare();
-            $insertId=$postare->addPostare($username,$rank,$categorie,$text);
+            $insertId=$postare->addPostare($user_id,$username,$rank,$categorie,$text);
             //raport la logpage
             
             $raport= new Logpage();
@@ -191,29 +221,19 @@ switch ($action)
         break;
 
     default:
-    $logtoken= new Login();
-        //  if(isset($_COOKIE["token"])){
-    
-        //     if($logtoken->verifyToken($_COOKIE["token"]))
-        //  echo "true";
-    //      else header("Location:index.php?action=login&message=tokenset");
-    //      echo $_COOKIE["token"];   
-    //      //  header("Location: index.php");
-    //         }
-    //     else header("Location:index.php");
-        
-    //     global $user_id;
-    //     $result=$logtoken->getIdFromToken($_COOKIE["token"]);
-    //     $user_id=$result[0]["user_id"];
-    //     if(empty($user_id))
-    //     echo "este gol";
+
+        // echo $user_id."<br>";
+        if(empty($user_id))
+        echo "este gol";
     
     
         $postare = new Postare();
         $result = $postare->getPostari();
         // echo json_encode($result[0]["post_id"])."<br>";
         //$result= $postare->getPostariById(51);
+        
         require_once "view/home.php";
+        
         
         break;
 
