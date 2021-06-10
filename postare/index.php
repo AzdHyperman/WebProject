@@ -7,6 +7,7 @@ require_once ("model/MProfilepage.php");
 
 $db_handle=new DBController();
 $logtoken= new Login();
+if(!empty($_COOKIE["token"])){
 $result=$logtoken->getIdFromToken($_COOKIE["token"]);
     
 $user_id=$result[0]["user_id"];
@@ -14,6 +15,7 @@ $result2=$logtoken->getUsersById($user_id);
 $username=$result2[0]["username"];
 $avatar=$result2[0]["avatar"];
 $rank=$result2[0]["rank"];
+}
 //mvc handler
 $action="";
 global $user_id;
@@ -237,7 +239,7 @@ $rank=$result2[0]["rank"];
         $postare = new Postare();
         $result = $postare->getPostari();
         // echo json_encode($result[0]["post_id"])."<br>";
-        //$result= $postare->getPostariById(51);
+        $result= $postare->getPostariByUserId($user_id);
         
         require_once "view/home.php";
         

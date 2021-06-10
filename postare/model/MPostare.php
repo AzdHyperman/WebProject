@@ -60,7 +60,7 @@ class Postare{
         $query = "SELECT * FROM postari WHERE user_id = ?";
         $paramType = "i";
         $paramValue = array(
-            $post_id
+            $user_id
         );
         
         $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
