@@ -46,19 +46,21 @@ body
     flex-direction: column;
   }
   .profile img{
-    width: 250px;
+    width: auto;
     height: 250px;
     object-fit: contain;
     /* margin:20px; */
+    margin:auto;
   }
   .profile input{
     margin-left: 20px;
   }
+  
 
 /* centru  */
 .center-page{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   box-sizing: border-box;
   margin:auto;
   margin-top:1%;
@@ -76,12 +78,12 @@ body
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 75%;
+  width: 70%;
   height: auto;
-  border: 1% solid #28527a;
+  /* border: 1% solid #28527a; */
   border-radius: 5px;
   box-shadow: 5px 3px 5px 3px #222831;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 form {
  display:flex;
