@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gazdă: 127.0.0.1
--- Timp de generare: iun. 05, 2021 la 09:47 AM
+-- Timp de generare: iun. 10, 2021 la 11:06 AM
 -- Versiune server: 10.4.19-MariaDB
 -- Versiune PHP: 8.0.6
 
@@ -42,8 +42,17 @@ CREATE TABLE `user` (
   `iduser` int(11) NOT NULL,
   `Email` varchar(30) NOT NULL,
   `Nume` varchar(30) NOT NULL,
-  `Parola` varchar(30) NOT NULL
+  `Parola` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Eliminarea datelor din tabel `user`
+--
+
+INSERT INTO `user` (`iduser`, `Email`, `Nume`, `Parola`) VALUES
+(13, 'alex', 'vadim', '$2y$10$jr5RsJjJct5gzpcir5/pcOc'),
+(14, 'mihai', 'creanga', '$2y$10$biPtfuV49PkhmQIc42q59u8'),
+(15, 'ionica', 'marga', '$2y$10$BQ.ONdU/OD7BGQ74L10/zeZ');
 
 --
 -- Indexuri pentru tabele eliminate
@@ -63,7 +72,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pentru tabele `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

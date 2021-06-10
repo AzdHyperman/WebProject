@@ -8,10 +8,11 @@ if(isset($_REQUEST["registerNume"])
 && isset($_REQUEST["registerPassword"])
 && !empty($_REQUEST["registerPassword"]) 
 ){
-
-    if($db->register($_REQUEST["registerEmail"],$_REQUEST["registerNume"],$_REQUEST["registerPassword"])){
-        $a=$_REQUEST["registerEmail"];
-        $b=$_REQUEST["registerPassword"];
+    $a=$_REQUEST["registerEmail"];
+    $b=$_REQUEST["registerPassword"];
+    $c=$_REQUEST["registerNume"];
+    if($db->register($a,$c,$b)){
+        
     if(strlen($db->verifyLogin($a,$b))>0){
         setcookie("token",$db->verifyLogin($a,$b),time() + (86400 * 30),"/");
         header("Location:./home.php");

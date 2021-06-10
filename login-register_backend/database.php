@@ -5,6 +5,7 @@ private $dbUserName = "root";
 private $dbPassword = "";
 private $dbName = "users";
 private $conn; 
+private $iduser;
 
     function __construct(){
 
@@ -13,29 +14,36 @@ private $conn;
         $this->dbPassword = "";
         $this->dbName = "users";
         $this->conn = mysqli_connect($this->dbServerName,$this->dbUserName, $this->dbPassword,$this->dbName);
+        if(!$this->conn)
+        {
+            die("Nu se poate conecta la baza de date");
+        }
+        return $this->conn;
     }
 
-    public function returnConn(){
-        return $this->conn;
-    
-    }
 
     public function verifyLogin($email,$parola){
-        $sql = "SELECT * FROM user WHERE (Email='$email' and Parola='$parola')";	
-        $result = mysqli_query($this->conn,$sql) or die("Bad query $sql");
-        $resultCheck = mysqli_num_rows($result);
-        $conn=$email.$parola."secretcode";
+        $parola_verificare_query = "SELECT Parola FROM user WHERE Email='$email' limit 1;";
+        $result_parola =  mysqli_query($this->conn,$parola_verificare_query) or die("Bad query $parola_verificare_query");
+        $row_parola = mysqli_fetch_row($result_parola);
+        $verify_parola = password_verify($parola, $row_parola[0]);
+        if($verify_parola)
+        {
+            $sql = "SELECT * FROM user WHERE Email='$email';";
+            $result = mysqli_query($this->conn,$sql) or die("Bad query $sql");
+            $resultCheck = mysqli_num_rows($result);
+            $conn=$email.$parola."secretcode";
     
-        if($row = mysqli_fetch_assoc($result))
-        $iduser=$row["iduser"];
-        $this->iduser=$iduser;
-        if($resultCheck>0){
-            $this->addToken(md5($conn),$iduser);
-            return md5($conn);
+            if($row = mysqli_fetch_assoc($result))
+            $iduser=$row["iduser"];
+            $this->iduser=$iduser;
+            if($resultCheck>0){
+                $this->addToken(md5($conn),$iduser);
+                return md5($conn);
             
-            }
-        else return "";
-    
+                }
+            else return "";
+        }
     }
 
     public function verifyToken($token){
@@ -58,6 +66,19 @@ private $conn;
         
     }return $iduser;
     
+    }
+
+    public function getEmailFromToken($token){
+        $id=$this->getIdFromToken($token);
+        $sql = "SELECT * FROM user WHERE iduser='$id'";
+        $result=mysqli_query($this->conn,$sql) or die ("Bad query $sql");
+        $resultCheck = mysqli_num_rows($result);
+        if($row = mysqli_fetch_assoc($result)){
+        
+    
+            return $row["Email"];
+        }
+        
     }
 
 
@@ -84,9 +105,9 @@ private $conn;
 
     public function register($email, $nume, $parola){
         if($this->verifyEmail($email)){
-        $parola_criptata=md5($parola);
+        $parola_criptata = password_hash($parola,PASSWORD_BCRYPT);
         $stmt= mysqli_prepare($this->conn,"INSERT INTO user (Email, Nume, Parola) VALUES (?,?,?) ");
-        mysqli_stmt_bind_param($stmt, 'sss', $email, $nume, $parola);
+        mysqli_stmt_bind_param($stmt, 'sss', $email, $nume, $parola_criptata);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     return true;
