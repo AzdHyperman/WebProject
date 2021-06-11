@@ -7,14 +7,6 @@ PuAC (Purchase Advising Council)
 ·       Pe masura ce sunt adaugate mai multe variante, sfatuitorii le vor putea ordona, in functie de preferinte. Cumparatorul va putea consulta situatia curenta (clasametul general, si cel al fiecarui sfatuitor) si va putea comenta.
 ·       Un cumparator poate avea mai multe achizitii active. Cumparatorul va putea adauga sfatuitori.
 
-(O poza cu pagina de home)
-
-(Cateva Previews cum functioneaza (COMING SOON!)
-
-Link documentatie!
-
-https://github.com/AzdHyperman/WebProject/tree/Arhitectura
-
 
 *Nota: pe acest repozit au fost create mai multe branch-uri, astfel evolutia proiectului se poate vedea acolo, astfel pentru verificarea si notarea proiectului
            se va afla pe branch-ul MAIN!!
