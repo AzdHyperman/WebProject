@@ -36,7 +36,7 @@
 
 	<main class="center-page">
 		<div class="postare">
-			<form id="postareForm" action="index.php?action=add-postare" method="post" >
+			<form id="postareForm"  method="post" >
 			<textarea id="text-postare" name="text" maxlength=1000 placeholder="Scrie ceva ..."></textarea>
 			<div class="postare-element_footer">
 				<aside>
@@ -55,10 +55,8 @@
 			</form>
 		</div>
 
-		<div class="postari-list" id="postari-list">
+		<div class="postari-list" id="postari-list" onload="getPostare()">
 		<?php
-// require_once ("../model/MPostare.php");
-// require_once ("./index.php;");
 			if(! empty($result)) 
 			{
 				// echo json_encode($result);
@@ -156,35 +154,40 @@
  			}
 			}
 		}		
-// $(document).ready(function(){
-//       $("#postareForm").submit(function() {
-//                     var text= $("#text-postare").val();
-//                     var categorie= $("#categorie").val();
+		document.getElementById('postareForm').addEventListener('submit', addPostare);
+		function addPostare(e){
+      e.preventDefault();
 
-//                     $.ajax({
-//                         type: "POST",
-//                         url: "index.php?action=add-postare",
-//                         data: "text=" + text+ "&categorie=" + categorie,
-//                         success: function(data) {
-//                            alert(text);
-//                         }
-//                     });
+      var text = document.getElementById('text-postare').value;
+	  var categorie=document.getElementById('categorie').value;
+      var params = "text="+text+"&categorie="+categorie;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '?action=add-postare', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      xhr.onload = function(){
+        console.log(this.responseText);
+      }
+
+      xhr.send(params);
+    }
+	document.getElementById('postareForm').addEventListener('submit', getPostare);
+	function getPostare(e){
+      e.preventDefault();
 
 
-//                 });
-//         });
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'index.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
+      xhr.onreadystatechange = function(){
+        document.getElementById("postari-list").innerHTML = this.responseText;
+		console.log(this.responseText);
+      }
 
-// function getPostari(){
-// 	var xhttp = new XMLHttpRequest();
-// 	xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       document.getElementById("postari-list-element").innerHTML = this.responseText;
-//     }
-//   };
-//   xhttp.open("GET", "view/postariList.php", true);
-//   xhttp.send();
-// }
+      xhr.send();
+    }	
 	</script>
 </body>
 </html>

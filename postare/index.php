@@ -7,21 +7,24 @@ require_once ("model/MProfilepage.php");
 
 $db_handle=new DBController();
 $logtoken= new Login();
+
 if(!empty($_COOKIE["token"])){
-$result=$logtoken->getIdFromToken($_COOKIE["token"]);
-    
+$result=$logtoken->getIdFromToken($_COOKIE["token"]); 
 $user_id=$result[0]["user_id"];
 $result2=$logtoken->getUsersById($user_id);
 $username=$result2[0]["username"];
 $avatar=$result2[0]["avatar"];
 $rank=$result2[0]["rank"];
 }
+else { echo "";}
+
 //mvc handler
 $action="";
 global $user_id;
 global $username;
 global $avatar;
 global $rank;
+global $result;
 if(!empty($_GET["action"]))
 {
     $action=$_GET["action"];
@@ -53,9 +56,9 @@ switch ($action)
         break;
     case "logout":
          $logout=new Login();
-        $id=$logout->getIdFromToken($_COOKIE["token"]);
-        setcookie("token",$logout->verifyLogin($a,$b),time() - (86400 * 30),"/");
-        $logout->deleteToken($id);
+        // $id=$logout->getIdFromToken($_COOKIE["token"]);
+        // setcookie("token",$logout->verifyLogin($a,$b),time() - (86400 * 30),"/");
+        $logout->deleteToken($user_id);
         header("Location:index.php?action=login");
         break;
     case "register":
@@ -104,7 +107,10 @@ switch ($action)
         
         if(!empty($user_id)){
         // $user_id=$_GET['user_id'];
-        // echo $user_id."<br>";
+        // $user_id=$result;
+        //  echo $user_id."<br>";
+        
+        
         echo "";
         }
         else {$user_id=1;}
@@ -141,8 +147,8 @@ switch ($action)
         require_once "view/profile.php";
         break;
     case "add-postare":
-        if(isset($_POST["add"]))
-        {
+        // if(isset($_POST["add"]))
+        // {
             //$postare=new CPostare();
             // $username="defaultUser";//session or cookie
             $text=$_POST['text'];
@@ -170,7 +176,7 @@ switch ($action)
                 
                  }
      
-        }//end if add
+        // }//end if add
          $postare = new Postare();
          $result = $postare->getPostari();
          
@@ -215,13 +221,14 @@ switch ($action)
     default:
     $logtoken= new Login();
     if(isset($_COOKIE["token"])){
-    
     if($logtoken->verifyToken($_COOKIE["token"]))
     echo "";
     else{ header("Location:index.php?action=login&message=tokenset");
-    
+            echo "valori necunoscute";
        }
-    }else {header("Location: index.php?action=login");}
+    }else {header("Location: index.php?action=login");
+        
+    }
     
     $result=$logtoken->getIdFromToken($_COOKIE["token"]);
     
