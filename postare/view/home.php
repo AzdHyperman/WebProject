@@ -84,10 +84,14 @@
 					
 				</div>
 				<div class="add-comment">
+					<?php $post_id= $result[$k]["post_id"];?>
 					<textarea id="casuta-comment" placeholder="add-comment"></textarea>
-					<button onclick="loadDoc()">posteaza</button>
+					<button type="submit" name="commentAdd">posteaza</button>
 				</div>
-				<div class="replies" id="replies"></div>
+				<div class="replies" id="replies" onload="getComment()">
+					
+
+				</div>
 			</div>
 			<?php }} ?>
 			<!-- toate postarile  -->
@@ -187,7 +191,42 @@
       }
 
       xhr.send();
-    }	
+    }
+	
+	document.getElementsByClassName('add-comment').addEventListener('submit',addComment);
+	function addComment(e)
+	{
+		e.preventDefault();
+		var text = document.getElementsById('casuta-comment').value;
+	    var params = "casuta-comment="+text;
+		var xhr = new XMLHttpRequest();
+      	xhr.open('POST', '?action=add-comment', true);
+      	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      	xhr.onload = function(){
+        	console.log(this.responseText);
+      	}
+
+     	 xhr.send(params);
+	}
+
+	document.getElementById('postari-list').addEventListener('submit', getComment);
+	function getComment(e){
+      e.preventDefault();
+
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'index.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function(){
+        document.getElementById("replies").innerHTML = this.responseText;
+		console.log(this.responseText);
+      }
+
+      xhr.send();
+    }
+
 	</script>
 </body>
 </html>

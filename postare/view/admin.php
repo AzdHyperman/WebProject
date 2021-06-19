@@ -90,7 +90,7 @@ if(isset($_POST["pdf"])){
 //csv
 	if(isset($_POST["csv"])){
 		ob_start();
-		header('Content-Type: text/csv');
+		
 		header('Content-Disposition: attachment; filename="sample.csv"');
 		// exit();
 $data = array(
