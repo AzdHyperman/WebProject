@@ -54,7 +54,7 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<button type="submit"  name="add" onload="getPostare()" >Posteaza</button>
+			<button type="submit"  name="add" onclick="document.location.reload(true)" >Posteaza</button>
 			</form>
 		</div>
 
