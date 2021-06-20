@@ -111,7 +111,7 @@ class Login {
 
      function register($email, $username, $parola){
         if($this->verifyEmail($email)){
-        $parola_criptata=password_hash($parola, PASSWORD_DEFAULT);
+        $parola_criptata=md5($parola);
         // $stmt= mysqli_prepare($this->conn,"INSERT INTO user (Email, Nume, Parola) VALUES (?,?,?) ");
         // mysqli_stmt_bind_param($stmt, 'sss', $email, $nume, $parola);
         // mysqli_stmt_execute($stmt);

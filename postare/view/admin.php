@@ -15,8 +15,8 @@
 	
 
 	<header class="topnav" id="myTopnav">
-		<a class="active" href="./home.html">Home</a>
-		<a href="./feedbacks.html">Sfatuitori</a>
+		<a class="active" href="index.php">Home</a>
+		<a href="index.php?action=feedbacks">Sfatuitori</a>
 		<a href="https://github.com/AzdHyperman/WebProject">About</a>
 		<a href="#page_footer">Contact</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
@@ -35,11 +35,7 @@
     <h1 >Activitate Site</h1>
 	<form action="" method="POST" enctype="multipart/form-data">
 	<div class="ActivityLog">
-		<p>activitate 1 </p>
-		<p>activitate 2</p>
-		<p>activitate 3</p>
-		<p>activitate 4</p>
-		<p>activitate 5</p>
+
 	<?php if(!empty($result)) 
 	{foreach($result as $k =>$v)
 	{
@@ -57,7 +53,7 @@
         <Button name="pdf">save as pdf</Button>
         <Button name="csv">save as csv</Button>
         <Button>save as png</Button>
-        <button name="print">Print</button>
+        <button onclick="window.print()">Print</button>
     </div>
 	</form>
 </body>
@@ -90,7 +86,7 @@ if(isset($_POST["pdf"])){
 //csv
 	if(isset($_POST["csv"])){
 		ob_start();
-		
+		header('Content-Type: text/csv');
 		header('Content-Disposition: attachment; filename="sample.csv"');
 		// exit();
 $data = array(
@@ -105,10 +101,5 @@ foreach ( $data as $line ) {
     fputcsv($fp, $val);
 }
 fclose($fp);
-	}
-
-	if(isset($_POST["print"])){
-		echo '
-		<button onclick="window.print()">Print this page</button>';
 	}
 ?>

@@ -46,7 +46,7 @@ min-height: 100vh;
 	{ 
 	?> 
         <div class="post">
-            <div class="post-user"><?php echo "Username :".$result[$k]["username"]." Rank : ".$result[$k]["rank"]." Categorie : ".$result[$k]["username"];?></div>
+            <div class="post-user"><?php echo "Username :".$result[$k]["username"]." Rank : ".$result[$k]["rank"]." Categorie : ".$result[$k]["categorie"];?></div>
             <p><?php echo $result[$k]["text"];?></p> 
             <div class="post-footer">
                 <button>Raspunde</button>

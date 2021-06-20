@@ -25,7 +25,10 @@
 				<label href="#"><?php echo $username; ?></label> 
 				<div class="dropdown-content">
 					<a href="index.php?action=profile">Profile</a>
-					<a href="index.php?action=logpage">Admin</a>
+					<?php if($result2[0]["admin"]==1) {
+					echo '<a href="index.php?action=logpage">Admin</a>';
+					}
+					?>
 					<a href="#">DarkMode?</a>
 					<a href="index.php?action=logout">Logout</a>
 				</div>
@@ -51,49 +54,13 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<button type="submit"  name="add"  >Posteaza</button>
+			<button type="submit"  name="add" onload="getPostare()" >Posteaza</button>
 			</form>
 		</div>
 
-		<div class="postari-list" id="postari-list" onload="getPostare()">
-		<?php
-			if(! empty($result)) 
-			{
-				// echo json_encode($result);
-			foreach($result as  $k=> $v)
-			{
-			?>
-			<!-- #2 -->
-			<div class="postari-list-element" >
-				<div class="postari-list-element_header"> <?php echo "Username: ".$result[$k]["username"]." Rank: ".$result[$k]["rank"]." Categorie: ".$result[$k]["categorie"];?></div>
-						<p><?php echo $result[$k]["text"];?></p> 
-						
-					<div class="postari-list-element_footer">
-					<button>rating</button>
-					<?php $post_id= $result[$k]["post_id"];?>
-					<button onclick="replybutton">Comment</button> 
-					<a class="btnEditAction"
-                        href="index.php?action=edit-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
-                        EDIT
-                        </a>
-                        <a class="btnDeleteAction" 
-                        href="index.php?action=delete-postare&post_id=<?php echo $result[$k]["post_id"]; ?>" >
-                        DELETE
-                        </a>
-					<div class="status"><?php echo "Status: ".$result[$k]["stats"];?></div>
-					
-				</div>
-				<div class="add-comment">
-					<?php $post_id= $result[$k]["post_id"];?>
-					<textarea id="casuta-comment" placeholder="add-comment"></textarea>
-					<button type="submit" name="commentAdd">posteaza</button>
-				</div>
-				<div class="replies" id="replies" onload="getComment()">
-					
-
-				</div>
-			</div>
-			<?php }} ?>
+		<div class="postari-list" id="postari-list" >
+		
+		<?php require ("view/postariList.php"); ?>
 			<!-- toate postarile  -->
 		</div>
 		<!-- pagina centrala -->
@@ -115,7 +82,6 @@
 		</section>
 	</footer>
 		
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 	<script>
 		function myFunction() 
 		{
@@ -182,51 +148,20 @@
 
 
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'index.php', true);
+      xhr.open('GET', 'view/postariList.php', true);
+	  xhr.responseType = 'text';
+
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function(){
         document.getElementById("postari-list").innerHTML = this.responseText;
-		console.log(this.responseText);
+		// var what_you_need = document.getElementById('postari-list').getElementById('postari-list-element').className
+
+		console.log("afisare succes");
       }
 
       xhr.send();
-    }
-	
-	document.getElementsByClassName('add-comment').addEventListener('submit',addComment);
-	function addComment(e)
-	{
-		e.preventDefault();
-		var text = document.getElementsById('casuta-comment').value;
-	    var params = "casuta-comment="+text;
-		var xhr = new XMLHttpRequest();
-      	xhr.open('POST', '?action=add-comment', true);
-      	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-      	xhr.onload = function(){
-        	console.log(this.responseText);
-      	}
-
-     	 xhr.send(params);
-	}
-
-	document.getElementById('postari-list').addEventListener('submit', getComment);
-	function getComment(e){
-      e.preventDefault();
-
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'index.php', true);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-      xhr.onreadystatechange = function(){
-        document.getElementById("replies").innerHTML = this.responseText;
-		console.log(this.responseText);
-      }
-
-      xhr.send();
-    }
-
+    }	
 	</script>
 </body>
 </html>
