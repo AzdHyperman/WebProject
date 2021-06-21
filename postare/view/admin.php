@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,48 +59,30 @@
 	</form>
 </body>
 </html>
+
 <?php	
- 
-use Dompdf\Dompdf;
-if(isset($_POST["pdf"])){
-	ob_start();
-	echo "buna";
-	// include autoloader
-	require_once 'util/dompdf/autoload.inc.php';
-	// reference the Dompdf namespace
-
-	// instantiate and use the dompdf class
-	$dompdf = new Dompdf();
-	$dompdf->loadHtml(ob_get_clean());
-
-	// (Optional) Setup the paper size and orientation
-	$dompdf->setPaper('A4', 'landscape');
-
-	// Render the HTML as PDF
-	//ob_get_clean();
-	$dompdf->render();
-
-	// Output the generated PDF to Browser
-	$dompdf->stream('activity');
-	exit();
-}
 //csv
-	if(isset($_POST["csv"])){
-		ob_start();
-		header('Content-Type: text/csv');
-		header('Content-Disposition: attachment; filename="sample.csv"');
-		// exit();
-$data = array(
-        'aaa,bbb,ccc,dddd',
-        '123,456,789',
-        '"aaa","bbb"'
-);
+    include_once './controller/DBController.php';
+    $dbCSV = new DBController();
+	    if(isset($_POST["csv"]))
+	    {
+		    header('Content-Disposition: attachment; filename="sample.csv"');
+			$query="SELECT * FROM logpage";
+            $result = mysqli_query($dbCSV->connectDB(), $query);
 
-$fp = fopen('php://output', 'wb');
-foreach ( $data as $line ) {
-    $val = explode(",", $line);
-    fputcsv($fp, $val);
-}
-fclose($fp);
-	}
+			ob_end_clean();
+
+		    $output = fopen('php://output', 'w');
+            fputcsv($output,array('Log_Id','Type','Informatii','Data'));
+             
+            while($row = mysqli_fetch_assoc($result))  
+            {  
+                fputcsv($output, $row);  
+            }  
+		    header('Content-Type: text/csv; charset=utf-8 ');
+		    
+			exit();
+	    }
+//endCSV
+
 ?>
