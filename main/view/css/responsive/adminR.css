@@ -1,0 +1,13 @@
+@media screen and (max-width: 700px) 
+         {
+            .ActivityLog
+            {
+                width: 75%;
+            }
+            a.savebtn
+            {
+                width: 30%;
+                height: 30%;
+                padding:3%;
+            }
+        }
