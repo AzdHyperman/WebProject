@@ -1,0 +1,14 @@
+footer{
+    background-color: #252a34;
+    display: flex;
+    padding-bottom: 1em;
+    color: whitesmoke;
+    /* margin-top:3%; */
+    margin-top:auto;
+    
+   
+}
+footer>section{
+    flex:1;
+    text-align: center;
+}
