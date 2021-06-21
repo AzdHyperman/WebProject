@@ -1,0 +1,69 @@
+	html 
+	{
+   		height: 100%;
+    	-ms-overflow-style: none; 
+    	scrollbar-width: none;
+	}
+
+	html::-webkit-scrollbar 
+	{
+    	display: none;
+	}
+        body{
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			margin:0;
+    		padding:0;
+    		background-size: auto;
+   			background-attachment: fixed;
+    		background-image: linear-gradient(to left bottom, 	#393e46, #3f505f, #3e6478, 
+                                                      			#37798f, #288fa2, #288fa2, 
+                                                      			#288fa2, #288fa2, #37798f, 
+                                                      			#3e6478, #3f505f, #393e46
+                                    );
+
+		}
+		a.savebtn{
+			
+			/* appearance: button;  */
+			background-image: linear-gradient(to right top, #ff2e63, #fe5b90, #f67fb5, #ea9ecf, #e0bade);
+			color:black;
+			text-transform: uppercase;
+			outline: 0;
+			width: 30%;
+			height: 30%;
+			padding:3%;
+			-webkit-appearance: button;
+			-moz-appearance: button;
+			cursor: pointer;
+			transition:all 0.2s;
+			border:none;
+			text-decoration: none;
+		}
+        h1{
+            color: #CC0050;
+    		display:flex;
+    		justify-content:center;
+    		flex-wrap: wrap ;
+    		font-size: 300%;
+        }
+        .ActivityLog{
+            width: 30%;
+            height: 100%;
+            text-align:center;
+            margin:auto;
+            margin-top: 3%;
+			margin-bottom: 3%;
+			/* border: 1% solid #28527a; */
+    		border-radius: 5px;
+    		box-shadow: 5px 3px 5px 3px #222831;
+    		padding: 2%;
+			background-image: linear-gradient(to right bottom, 	#252a34, #363756, #5b3e72, 
+																#8d3e81, #c2357f, #c2357f, 
+																#c2357f, #c2357f, #8d3e81, 
+																#5b3e72, #363756, #252a34
+											);
+   
+        }
+
