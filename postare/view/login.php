@@ -18,7 +18,7 @@
             <form action="index.php?action=login" method="POST" class="form_login" id="form_login">  
                 
                 <div>
-                    <label for="loginEmail">Email</label>
+                    <label for="loginEmail">Username</label>
                     <input type="text"  name="username" id="loginEmail" placeholder="user...">
                 </div> 
 

@@ -54,7 +54,8 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<button type="submit"  name="add" onclick="document.location.reload(true)" >Posteaza</button>
+			<button type="submit"  name="add"  onclick="document.location.reload(true)" >Posteaza</button>
+		
 			</form>
 		</div>
 
@@ -135,7 +136,7 @@
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '?action=add-postare', true);
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
+	  
       xhr.onload = function(){
         console.log(this.responseText);
       }
