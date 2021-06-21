@@ -1,5 +1,6 @@
 <?php
 require_once("controller/DBController.php");
+require_once("model/Encryption.php");
 class Login {
 
     function __construct(){
@@ -28,7 +29,8 @@ class Login {
     {
         $sql = "SELECT * FROM users WHERE username=? and password=?";	   
         $paramType="ss";
-        $paramValue=array($username,$password);
+        $parola_criptata = encryptPassword($password);
+        $paramValue=array($username,$parola_criptata);
         $conn=$username.$password."secretcode";
         $result=$this->conn->runQuery($sql,$paramType,$paramValue);
         $user_id=$result[0]["user_id"];
@@ -111,14 +113,14 @@ class Login {
 
      function register($email, $username, $parola){
         if($this->verifyEmail($email)){
-        $parola_criptata=md5($parola);
+        $parola_criptata=encryptPassword($parola);
         // $stmt= mysqli_prepare($this->conn,"INSERT INTO user (Email, Nume, Parola) VALUES (?,?,?) ");
         // mysqli_stmt_bind_param($stmt, 'sss', $email, $nume, $parola);
         // mysqli_stmt_execute($stmt);
         // mysqli_stmt_close($stmt);
         $sql="INSERT INTO users (email,username,password) VALUES (?,?,?)";
         $paramType="sss";
-        $paramValue=array($email,$username,$parola);
+        $paramValue=array($email,$username,$parola_criptata);
         $insertId=$this->conn->insert($sql,$paramType,$paramValue);
         return true;
     }return false;
