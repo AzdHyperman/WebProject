@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="view/css/normalsize/navbar.css">
+	<link rel="stylesheet" href="view/css/responsive/navbarR.css">
 	<link rel="stylesheet" href="view/css/normalsize/footer.css">
 	<link rel="stylesheet" href="view/css/normalsize/admin.css">
 	<link rel="stylesheet" href="view/css/responsive/adminR.css">
@@ -24,7 +24,7 @@
 		<div class="Username">
 			<button class="userbox" onclick="userMenu()">
 			<img class="avatar" alt="Profile" src="view/imagini/<?php echo $avatar;?>"></button>
-				<label href="#"><?php echo $username; ?></label> 
+				<label href="#"><?php echo $username."|".$rank; ?></label> 
 				<div class="dropdown-content">
 					<a href="index.php?action=profile">Profile</a>
 					<a href="index.php?action=logpage">Admin</a>
@@ -46,43 +46,32 @@
 	}
 	}
 	?>
-        
-        
-        <!-- <div class="ActivityLog-elements">Type:Postare A fost dat un rasuns de Sfatuitor-ul Spoitorul</div>
-        <div class="ActivityLog-elements">Type:Login User-ul s-a logat la 10.12.2021 23:59</div>
-        <div class="ActivityLog-elements">Type:Login User-ul s-a logat la 10.12.2021 23:59</div> -->
-        <Button name="pdf">save as pdf</Button>
+        <!-- <Button name="pdf">save as pdf</Button> -->
         <Button name="csv">save as csv</Button>
+		<a class="savebtn" href="view/downloadcsv.php">save CSV</a>
         <Button>save as png</Button>
         <button onclick="window.print()">Print</button>
+
     </div>
+	
 	</form>
+   <div>
+	   
+   </div>
+
+	<script>
+		function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+			else 
+				{
+					x.className = "topnav";
+				}
+		}
+	</script>
 </body>
 </html>
-
-<?php	
-//csv
-    include_once './controller/DBController.php';
-    $dbCSV = new DBController();
-	    if(isset($_POST["csv"]))
-	    {
-		    header('Content-Disposition: attachment; filename="sample.csv"');
-			$query="SELECT * FROM logpage";
-            $result = mysqli_query($dbCSV->connectDB(), $query);
-
-			ob_end_clean();
-
-		    $output = fopen('php://output', 'w');
-            fputcsv($output,array('Log_Id','Type','Informatii','Data'));
-             
-            while($row = mysqli_fetch_assoc($result))  
-            {  
-                fputcsv($output, $row);  
-            }  
-		    header('Content-Type: text/csv; charset=utf-8 ');
-		    
-			exit();
-	    }
-//endCSV
-
-?>

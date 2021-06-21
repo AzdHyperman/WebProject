@@ -62,6 +62,10 @@ switch ($action)
         break;
     case "logout":
          $logout=new Login();
+         $report=new Logpage();
+         $type="login";
+         $info="s-a delogat user-ul cu user_id ".$user_id;
+         $report->sendLog($type,$info);
         // $id=$logout->getIdFromToken($_COOKIE["token"]);
         // setcookie("token",$logout->verifyLogin($a,$b),time() - (86400 * 30),"/");
         $logout->deleteToken($user_id);
@@ -108,6 +112,9 @@ switch ($action)
         break;
     case "logpage":
         $logs = new Logpage();
+        $users= new Login();
+        $userlist=$users->getUsers();
+
         $result = $logs->getLog();
         //$result= $postare->getPostariById(51);
         require_once "view/admin.php";

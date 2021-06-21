@@ -68,16 +68,6 @@ class Postare{
     }
 
     //add
-    function get_comment($post_id){
-        $query = "SELECT text FROM postari WHERE post_id = ?";
-        $paramType = "i";
-        $paramValue = array(
-            $post_id
-        );
-        
-        $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
-        return $result;
-    }
 }
 
 ?>

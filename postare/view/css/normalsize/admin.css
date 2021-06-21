@@ -1,4 +1,4 @@
-html 
+	html 
 	{
    		height: 100%;
     	-ms-overflow-style: none; 
@@ -24,6 +24,23 @@ html
                                     );
 
 		}
+		a.savebtn{
+			
+			/* appearance: button;  */
+			background-image: linear-gradient(to right top, #ff2e63, #fe5b90, #f67fb5, #ea9ecf, #e0bade);
+			color:black;
+			text-transform: uppercase;
+			outline: 0;
+			width: 120px;
+			height: 48px;
+			padding:0%;
+			-webkit-appearance: button;
+			-moz-appearance: button;
+			cursor: pointer;
+			transition:all 0.2s;
+			border:none;
+			text-decoration: none;
+		}
         h1{
             color: #CC0050;
     		display:flex;
@@ -37,7 +54,8 @@ html
             text-align:center;
             margin:auto;
             margin-top: 3%;
-			border: 1% solid #28527a;
+			margin-bottom: 3%;
+			/* border: 1% solid #28527a; */
     		border-radius: 5px;
     		box-shadow: 5px 3px 5px 3px #222831;
     		padding: 2%;
@@ -48,3 +66,4 @@ html
 											);
    
         }
+

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="view/css/normalsize/navbar.css">
 	<link rel="stylesheet" href="view/css/normalsize/footer.css">
 	<link rel="stylesheet" href="view/css/responsive/homeR.css">
-	<!-- <link rel="stylesheet" href="view/css/responsive/navbar.css"> -->
+	<link rel="stylesheet" href="view/css/responsive/navbarR.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -54,8 +54,7 @@
 
 			</div>
 			<!-- <button>Posteaza</button> -->
-			<button type="submit"  name="add"  onclick="document.location.reload(true)" >Posteaza</button>
-		
+			<button type="submit"  name="add" onclick="document.location.reload(true)" >Posteaza</button>
 			</form>
 		</div>
 
@@ -136,7 +135,7 @@
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '?action=add-postare', true);
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-	  
+
       xhr.onload = function(){
         console.log(this.responseText);
       }

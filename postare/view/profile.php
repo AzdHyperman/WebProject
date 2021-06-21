@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="view/css/normalsize/profile.css">
 	<link rel="stylesheet" href="view/css/responsive/profileR.css">
     <link rel="stylesheet" href="view/css/normalsize/navbar.css">
+    <link rel="stylesheet" href="view/css/responsive/navbarR.css">
 	<link rel="stylesheet" href="view/css/normalsize/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="topnav" id="myTopnav">
@@ -19,12 +21,12 @@
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 		<div class="Username">
 			<button class="userbox" onclick="userMenu()">
-            <img class="avatar" alt="Profile" src="view/imagini/<?php echo $avatar;?>"></button>
+            <img class="avatar" alt="Prof" src="view/imagini/<?php echo $avatar;?>"></button>
 				<label href="#"><?php echo $username; ?></label>  
 				<div class="dropdown-content">
 					<a href="index.php?action=profile">Profile</a>
 					<a href="index.php?action=logpage">Admin</a>
-					<a href="#">DarkMode</a>
+					<!-- <a href="#">DarkMode</a> -->
 					<a href="index.php?action=logout">Logout</a>
 				</div>
 		</div>
@@ -75,6 +77,18 @@
             </section>
         </footer>
         <script>
+        function myFunction() 
+		{
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") 
+				{
+					x.className += " responsive";
+				} 
+			else 
+				{
+					x.className = "topnav";
+				}
+		}
         function triggerClick(e) {
         document.querySelector('#profileImage').click();
         }

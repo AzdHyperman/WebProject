@@ -7,24 +7,6 @@ class Login {
         $this->conn=new DBController();
     }
 
-
-    // function verifyLogin($username,$password)
-    // {
-    //     $sql = "SELECT * FROM users WHERE username='$username' and password='$password'";	
-    //     $result = mysqli_query($this->conn,$sql) or die("Bad query $sql");
-    //     $resultCheck = mysqli_num_rows($result);
-    //     $conn=$email.$parola."secretcode";
-    
-    //     if($row = mysqli_fetch_assoc($result))
-    //     $iduser=$row["user_id"];
-    //     // $this->iduser=$iduser;
-    //     if($resultCheck>0){
-    //         $this->addToken(md5($conn),$iduser);
-    //         return md5($conn);
-            
-    //         }
-    //     else return "";
-    //     }
     function verifyLogin($username,$password)
     {
         $sql = "SELECT * FROM users WHERE username=? and password=?";	   
@@ -50,12 +32,14 @@ class Login {
         $result2=$this->conn->runQuery($sql,$paramType,$paramValue);
         return $result2;
     }
+    function getUsers()
+    {
+        $sql="SELECT * FROM users order by user_id";
+        $result=$this->conn->runBaseQuery($sql);
+        return $result;
+    }
      function verifyToken($token){
         $check = false;
-        // $stmt = mysqli_prepare($this->conn, "SELECT * from tokens where token=?"); 
-        // mysqli_stmt_bind_param($stmt, 's', $token);
-        // mysqli_stmt_execute($stmt);
-        // $stmt->store_result();
         $sql="SELECT * from tokens where token=?";
         $paramType="s";
         $paramValue=array($token);
@@ -70,16 +54,8 @@ class Login {
         $sql = "SELECT * FROM tokens WHERE token=?";	
         $paramType="s";
         $paramValue=array($token);
-
         $result=$this->conn->runQuery($sql,$paramType,$paramValue);
-        
         return $result;
-        // $result = mysqli_query($this->conn,$sql) or die("Bad query $sql");
-        // $resultCheck = mysqli_num_rows($result);
-        // if($row = mysqli_fetch_assoc($result)){
-        // $user_id=$row["user_id"];
-        // }
-        // return $user_id;
     
     }
 
@@ -98,10 +74,6 @@ class Login {
     }
 
      function verifyEmail($email){
-        // $stmt=mysqli_prepare($this->conn,"select * from users where email=?");
-        // mysqli_stmt_bind_param($stmt,'s',$email);
-        // mysqli_stmt_execute($stmt);
-        // $stmt->store_result();
         $sql="SELECT * FROM users where email=?";
         $paramType="s";
         $paramValue=array($email);
@@ -114,10 +86,6 @@ class Login {
      function register($email, $username, $parola){
         if($this->verifyEmail($email)){
         $parola_criptata=encryptPassword($parola);
-        // $stmt= mysqli_prepare($this->conn,"INSERT INTO user (Email, Nume, Parola) VALUES (?,?,?) ");
-        // mysqli_stmt_bind_param($stmt, 'sss', $email, $nume, $parola);
-        // mysqli_stmt_execute($stmt);
-        // mysqli_stmt_close($stmt);
         $sql="INSERT INTO users (email,username,password) VALUES (?,?,?)";
         $paramType="sss";
         $paramValue=array($email,$username,$parola_criptata);
@@ -127,9 +95,6 @@ class Login {
     }
 
      function deleteToken($user_id){
-        // $stmt = mysqli_prepare($this->conn,"delete from tokens where user_id=?");
-        // mysqli_stmt_bind_param($stmt,'i',$user_id);
-        // mysqli_stmt_execute($stmt);
         $sql="DELETE FROM tokens where user_id=?";
         $paramType="i";
         $paramValue=array($user_id);
