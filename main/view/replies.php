@@ -50,6 +50,9 @@
                          <p><?php echo $comm_id."<br>";
                                  echo $comments[$replykey]["text"];
                             ?> </p>
+                        <div class="reply_footer">
+                        <a href="index.php?action=delete-comment&comm_id=<?php echo $comments[$replykey]['comm_id']?>">DELETE</a>
+                        </div>
                      </div>
                  </div>
                  <?php

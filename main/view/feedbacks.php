@@ -24,6 +24,7 @@
   		align-self: center;
   		color:black;
   		text-transform: uppercase;
+		text-decoration:none;
   		font-family: cursive;
   		width: auto;
   		padding:1%;
