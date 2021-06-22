@@ -110,6 +110,33 @@ switch ($action)
         $result=$postari->getPostari();
         require_once "view/feedbacks.php";
         break;
+    case "raspunde-thread":
+        $postare=new Postare();
+        $post_id=$_GET["post_id"];
+        $result=$postare->getPostariById($post_id);
+        $comment=new Comments();
+        if(isset($_POST["comment"]))
+        {
+            echo "comment adaugat";
+            $comm=$_POST["comm"];
+            $reply_of=0;
+            echo $username."<br>";
+            echo $post_id."<br>";
+            echo $comm;
+            $insertId=$comment->addComment($username,$post_id,$comm,$reply_of);
+            
+        }
+        if(isset($_POST["reply"]))
+        {
+            echo "reply adaugat";
+            $comm=$_POST["comm"];
+            $comm_id=$_POST["comm_id"];
+            $insertId=$comment->addComment($username,$post_id,$comm,$comm_id);
+           
+        
+        }
+        require_once "view/postareThread.php";
+        break;
     case "logpage":
         $logs = new Logpage();
         $users= new Login();
