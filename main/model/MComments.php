@@ -25,6 +25,15 @@ class Comments{
         $this->db_handle->update($sql,$paramType,$paramValue);
 
     }
+    function getCommentsByCommId($comm_id) {
+        $query = "SELECT * FROM comments WHERE comm_id = ?";
+        $paramType = "i";
+        $paramValue = array(
+            $comm_id
+        );
+        $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
+        return $result;
+    }
     function deleteComment($comm_id){
         $sql="DELETE FROM comments where comm_id=?";
         $paramType="i";
@@ -46,6 +55,7 @@ class Comments{
         $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
         return $result;
     }
+
 
 
 

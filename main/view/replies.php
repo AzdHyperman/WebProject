@@ -31,6 +31,7 @@
                     <button>rating</button>
                     <button>Comment</button>
                     <a class="btnDeleteComment" href="index.php?action=delete-comment&comm_id=<?php echo $comments[$k]['comm_id']?>">DELETE</a>
+                    <a class="btnDeleteComment" href="index.php?action=edit-comment&comm_id=<?php echo $comments[$k]['comm_id']?>">EDIT</a>
                 </div>
 		<!-- footer  -->
 						<!-- casuta comment  -->
@@ -52,6 +53,7 @@
                             ?> </p>
                         <div class="reply_footer">
                         <a class="btnDeleteComment" href="index.php?action=delete-comment&comm_id=<?php echo $comments[$replykey]['comm_id']?>">DELETE</a>
+                        <a class="btnDeleteComment" href="index.php?action=edit-comment&comm_id=<?php echo $comments[$k]['comm_id']?>">EDIT</a>
                         </div>
                      </div>
                  </div>

@@ -295,7 +295,25 @@ switch ($action)
     case "edit-comment":
         $comment=new Comments();
         //header edit comment page or direct
+        $comment_id=$_GET["comm_id"];
+        if(isset($_POST['edit']))
+            { 
+                // $categorie=$_POST["categorie"];
+                $comm=$_POST["comm"];
+                
+                $comment->editComment($comm,$comment_id);
+                $raport= new Logpage();
+                $type="achizitie-comment";
+                //$post_id=$_GET['post_id'];
+                $info="A fost editat comment_id ".$comm_id;
+                $insertLog=$raport->sendLog($type,$info);
+                header("Location:index.php");
+            }
+            //  $result=$postare->getPostariById($post_id);
+             $commentarii=$comment->getCommentsbyCommId($comment_id);
+            require_once "view/edit-comment.php";
         break;
+            
     default:
     $logtoken= new Login();
     if(isset($_COOKIE["token"])){
