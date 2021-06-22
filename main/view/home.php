@@ -8,9 +8,32 @@
 	<link rel="stylesheet" href="view/css/normalsize/home.css">
 	<link rel="stylesheet" href="view/css/normalsize/navbar.css">
 	<link rel="stylesheet" href="view/css/normalsize/footer.css">
+	<link rel="stylesheet" href="view/css/normalsize/feedbacks.css">
 	<link rel="stylesheet" href="view/css/responsive/homeR.css">
 	<link rel="stylesheet" href="view/css/responsive/navbarR.css">
+	<link rel="stylesheet" href="view/css/responsive/feedbacksR.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.btnEditAction,
+.btnDeleteAction,
+.btnDeleteComment
+{
+    text-transform: uppercase;
+    outline: 0;
+    width: 10%;
+    height: 1%;
+    padding: 1%;
+    cursor: pointer;
+    transition: all 0.2s;
+	background-color: #28527a;
+    background-image: linear-gradient(to right top, #252a34, #413a61, #7c3f7e, #c2357f, #ff2e63);
+    border-radius: 3px;
+    color: white;
+	text-align: center;
+
+}
+</style>
 </head>
 <body>
 	<header class="topnav" id="myTopnav">

@@ -21,6 +21,22 @@
     width: 70%;
     margin:auto;
 }
+.btnDeleteComment
+{
+    text-transform: uppercase;
+    outline: 0;
+    width: 10%;
+    height: 1%;
+    padding: 1%;
+    cursor: pointer;
+    transition: all 0.2s;
+	background-color: #28527a;
+    background-image: linear-gradient(to right top, #252a34, #413a61, #7c3f7e, #c2357f, #ff2e63);
+    border-radius: 3px;
+    color: white;
+	text-align: center;
+
+}
 </style>
 
 </head>
@@ -103,7 +119,7 @@ if(! empty($result))
                 <div class="reply_footer">
                     <button>rating</button>
                     <button>Comment</button>
-                    <a href="index.php?action=delete-comment&comm_id=<?php echo $comments[$k]['comm_id']?>">DELETE</a>
+                    <a class="btnDeleteComment" href="index.php?action=delete-comment&comm_id=<?php echo $comments[$k]['comm_id']?>">DELETE</a>
                 </div>
 		<!-- footer  -->
 						<!-- casuta comment  -->
@@ -124,7 +140,7 @@ if(! empty($result))
                                  echo $comments[$replykey]["text"];
                             ?> </p>
 							<div class="reply_footer">
-							<a href="index.php?action=delete-comment&comm_id=<?php echo $comments[$replykey]['comm_id']?>">DELETE</a>
+							<a  class="btnDeleteComment" href="index.php?action=delete-comment&comm_id=<?php echo $comments[$replykey]['comm_id']?>">DELETE</a>
 							</div>
                      </div>
                  </div>
