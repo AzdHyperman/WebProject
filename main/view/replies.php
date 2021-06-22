@@ -1,6 +1,6 @@
 				 
   <!-- comentariile la o postare  -->
-         <input type="hidden" name="post_id" value="<?php echo $result[$k]["post_id"]; ?>" required>
+        <input type="hidden" name="post_id" value="<?php echo $result[$k]["post_id"]; ?>" required>
         <?php 		
         $post_id=$result[$k]["post_id"]; echo $post_id;
           $comments=$comment->getCommentsById($post_id);          

@@ -49,7 +49,10 @@
             <div class="post-user"><?php echo "Username :".$result[$k]["username"]." Rank : ".$result[$k]["rank"]." Categorie : ".$result[$k]["categorie"];?></div>
             <p><?php echo $result[$k]["text"];?></p> 
             <div class="post-footer">
-                <button>Raspunde</button>
+			<a class="btnRaspundeThread"
+                        href="index.php?action=raspunde-thread&post_id=<?php echo $result[$k]["post_id"]; ?>">
+                        Raspunde
+                </a>
             </div>
         </div>
 		
