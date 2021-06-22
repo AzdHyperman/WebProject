@@ -18,6 +18,38 @@
 		flex-direction: column;
 		min-height: 100vh;
 	}
+	.post-footer .btnRaspundeThread
+	{
+  		text-align: center;
+  		align-self: center;
+  		color:black;
+  		text-transform: uppercase;
+  		font-family: cursive;
+  		width: auto;
+  		padding:1%;
+  		font-size:100%;
+  		cursor: pointer;
+  		transition:all 0.2s;
+  		border: 1% outset #28527a;
+  		border-radius: 5px;
+  		box-shadow: 5px 3px 5px 3px #222831;
+  		background-image: linear-gradient(to right bottom,  #f4d160, #ced969, #a7dd7c, 
+                                                      		#7edf97, #53deb3, #53deb3, 
+                                                      		#53deb3, #53deb3, #7edf97, 
+                                                      		#a7dd7c, #ced969, #f4d160);
+  
+	}
+
+	.post-footer .btnRaspundeThread:hover
+	{
+    	background: #7d00b8;
+    	color: #fff;
+    	border-radius: 3%;
+    	box-shadow:    	0 0 5px #7d00b8,
+                	   	0 0 25px #7d00b8,
+                   		0 0 50px #7d00b8,
+                   		0 0 100px #7d00b8;
+	}
 </style>
 </head>
 <body>
