@@ -11,6 +11,37 @@
 	<link rel="stylesheet" href="view/css/responsive/adminR.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Log page</title>
+	<style>
+	.butoaneExport
+	{
+		padding-top: 2%;
+		display:flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	@media screen and (max-width: 800px)
+	{
+		.ActivityLog
+            {
+                width: 60%;
+            }
+        a.savebtn
+            {
+                width: 30%;
+                height: 30%;
+                padding:3%;
+				margin-bottom: 2%;
+            }
+		.butoaneExport
+			{
+				padding-top: 2%;
+				display:flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+	}
+	</style>
 </head>
 <body>
 	
@@ -50,13 +81,14 @@
 				}
 		}
 	?>
-
-        <!-- <Button name="pdf">save as pdf</Button> -->
-        <!-- <Button name="csv">save as csv</Button> -->
-		<a class="savebtn" href="view/downloadcsv.php">save CSV</a>
-        <Button>save as png</Button>
-        <button onclick="window.print()">Print</button>
-
+	
+		<side class="butoaneExport">
+        	<!-- <Button name="pdf">save as pdf</Button> -->
+        	<!-- <Button name="csv">save as csv</Button> -->
+			<a class="savebtn" href="view/downloadcsv.php">save CSV</a>
+        	<Button>save as png</Button>
+       		<button onclick="window.print()">Print</button>
+	   	</side>
     </div>
 	
 	</form>
