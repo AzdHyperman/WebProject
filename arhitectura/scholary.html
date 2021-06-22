@@ -54,16 +54,6 @@
                     Se vor oferi informatii privind jurnalul tuturor activitatilor desfasurate de fiecare categorie de utilizatori (cumparatori, sfatuitori), exportate si in formatele CSV si PDF.
                 </p>
             </li>
-            <li>
-                <h3>Mod de Utilizare</h3>
-                <p>
-                    Aveti la dispozitie pagina de login.<br>
-                    Dupa ce v-ati autentificat vei avea la dispozitie formularul pentru adaugat achizitii.<br>
-                    Mai jos aveti achizitiile clientilor ce vor fi afisate,la care se asteapta raspuns.<br>
-                    Raspunsurile sunt date de sfatuitori dar vor putea comenta si alti utilizatori care iti vad postarea.(Nu e implementat inca)<br>
-
-                </p>
-            </li>
         </ul>
     </section>
     <section typeof="sa:Structure" class="main_container">
@@ -128,25 +118,41 @@
 
                 </ul>
             </li>
-            <li>
-                <h3> Backend</h3>
-                <p> Backend-ul are in componenta sa urmatoarele functii.
-                    DBController: pentru a apela functiile CRUD
-                    Elementele legate de el:<br>
-                        Login:toate functiile legate de Register Login Logout <br>
-                        Logpage:toate functiile legate in trimiterea unor raporturi.<br>
-                        userProfile:toate functiile legate de editarea unui profil de utilizator a utilizatorului curent.<br>
-                        Postare: toate functiile legate pentru a trimite edita si sterge postari/achizitii.<br>
-                </p>
-            </li>
+
             <li>
                 <h3>Database</h3>
                 <p> din database-ul puac avem urmatoarele tabele:<br>
                     users: user_id,avatar,username,email,password,admin<br>
                     tokens:user_id,token<br>
                     postari:user_id,post_id,categorie,text,data<br>
-                    logpage:type,info,data,user_id<br> </p>
+                    logpage:type,info,data,user_id<br> 
+                    comments:comm_id,username,post_id,text,reply_of,date<br> 
+                </p>
             </li>
+
+            <li>
+                <h3> Backend</h3>
+                <p> Backend-ul are in componenta sa urmatoarele functii.
+                    DBController: pentru a apela functiile CRUD
+                    Elementele legate de el:<br>
+                        Login:toate functiile legate de Register Login Logout. <br>
+                        Encryption:functiile de encriptie pentru parole.<br>
+                        Logpage:toate functiile legate in trimiterea unor raporturi.<br>
+                        userProfile:toate functiile legate de editarea unui profil de utilizator a utilizatorului curent.<br>
+                        Postare: toate functiile legate pentru a trimite edita si sterge postari/achizitii.<br>
+                        Comentarii:toate functiile legate de sistemul de comentarii al anunturilor.<br>
+                        ExportCSV:functia de export pentru raportul CSV.<br>
+                        CSV Example:<br>
+                        <img src="img/CSVEx.png" alt="csvexample" width="700px">
+                        <br>
+                </p>
+                </li>
+                <h3> JavaScript</h3>
+                <p>
+                    JavaScript pe partea de Backend a fost folosita pentru a posta anunturile folosit structura AJAX.
+                </p>
+            </li>
+            
 
                 
     </section>
