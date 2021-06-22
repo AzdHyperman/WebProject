@@ -16,8 +16,9 @@ foreach($result as  $k=> $v)
 						
 				<div class="postari-list-element_footer">
 				<!-- BUTOANELE -->
-					<button>rating</button>
-					<button onclick="replybutton">Comment</button> 
+					<a class="btnGenerateThred"href="index.php?action=raspunde-thread&post_id=<?php echo    $result[$k]["post_id"]; ?>">
+						Generate Link
+					</a>
 					<a class="btnEditAction"
                         href="index.php?action=edit-postare&post_id=<?php echo $result[$k]["post_id"]; ?>">
                         <i class="fa fa-pencil" ></i> Edit

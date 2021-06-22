@@ -17,11 +17,12 @@
 <style>
 .btnEditAction,
 .btnDeleteAction,
-.btnDeleteComment
+.btnDeleteComment,
+.btnGenerateThred
 {
     text-transform: uppercase;
     outline: 0;
-    width: 10%;
+    width: 14%;
     height: 1%;
     padding: 1%;
     cursor: pointer;
